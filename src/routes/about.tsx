@@ -1,92 +1,90 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { useI18n } from '../lib/i18n'
 
 export const Route = createFileRoute('/about')({
   component: About,
 })
 
-import { useI18n } from '../lib/i18n';
-
 export function About() {
-  const { t } = useI18n();
+  const { t } = useI18n()
+  
   return (
     <>
-      {/* Page Header Start */}
       <div
         className='container-fluid page-header py-5 mb-5 wow fadeIn'
         data-wow-delay='0.1s'
       >
         <div className='container text-center py-5'>
           <h1 className='display-3 text-white text-uppercase mb-3 animated slideInDown'>
-            {t('page.about')}
+            {t('about.title')}
           </h1>
           <nav aria-label='breadcrumb animated slideInDown'>
             <ol className='breadcrumb justify-content-center text-uppercase mb-0'>
               <li className='breadcrumb-item'>
                 <a className='text-white' href='/'>
-                  {t('nav.home')}
+                  {t('breadcrumb.home')}
                 </a>
               </li>
               <li className='breadcrumb-item'>
                 <a className='text-white' href='#'>
-                  {t('nav.pages')}
+                  {t('breadcrumb.pages')}
                 </a>
               </li>
               <li
                 className='breadcrumb-item text-primary active'
                 aria-current='page'
               >
-                {t('page.about')}
+                {t('about.title')}
               </li>
             </ol>
           </nav>
         </div>
       </div>
-      {/* Page Header End */}
 
-      {/* About Start */}
       <div className='container-xxl py-5'>
         <div className='container'>
           <div className='row g-5'>
             <div className='col-lg-6 wow fadeIn' data-wow-delay='0.1s'>
-              <div className='d-flex flex-column'>
+              <div className='d-flex flex-column position-relative'>
                 <img
                   className='img-fluid w-75 align-self-end'
                   src='/img/about.jpg'
                   alt='About Image'
+                  style={{ minHeight: '300px', objectFit: 'cover', backgroundColor: '#343a40' }}
                 />
                 <div
                   className='w-50 bg-secondary p-5'
-                  style={{ marginTop: '-25%' }}
+                  style={{ marginTop: '-25%', zIndex: 1, position: 'relative' }}
                 >
-                  <h1 className='text-uppercase text-primary mb-3'>{t('home.exp.years')}</h1>
-                  <h2 className='text-uppercase mb-0'>{t('home.exp.title')}</h2>
+                  <h1 className='text-uppercase text-primary mb-3'>{t('about.experience.years')}</h1>
+                  <h2 className='text-uppercase mb-0'>{t('about.experience.title')}</h2>
                 </div>
               </div>
             </div>
             <div className='col-lg-6 wow fadeIn' data-wow-delay='0.5s'>
               <p className='d-inline-block bg-secondary text-primary py-1 px-4'>
-                {t('home.about.title')}
+                {t('about.us')}
               </p>
               <h1 className='text-uppercase mb-4'>
-                {t('home.about.heading')}
+                {t('about.heading')}
               </h1>
               <p>
-                {t('home.about.desc1')}
+                {t('about.desc1')}
               </p>
               <p className='mb-4'>
-                {t('home.about.desc2')}
+                {t('about.desc2')}
               </p>
               <div className='row g-4'>
                 <div className='col-md-6'>
-                  <h3 className='text-uppercase mb-3'>{t('home.about.since')}</h3>
+                  <h3 className='text-uppercase mb-3'>{t('about.since.title')}</h3>
                   <p className='mb-0'>
-                    {t('home.about.since_desc')}
+                    {t('about.since.desc')}
                   </p>
                 </div>
                 <div className='col-md-6'>
-                  <h3 className='text-uppercase mb-3'>{t('home.about.clients')}</h3>
+                  <h3 className='text-uppercase mb-3'>{t('about.clients.title')}</h3>
                   <p className='mb-0'>
-                    {t('home.about.clients_desc')}
+                    {t('about.clients.desc')}
                   </p>
                 </div>
               </div>
@@ -94,7 +92,6 @@ export function About() {
           </div>
         </div>
       </div>
-      {/* About End */}
 
       <div className='container-xxl py-5'>
         <div className='container'>
@@ -104,9 +101,9 @@ export function About() {
             style={{ maxWidth: '600px' }}
           >
             <p className='d-inline-block bg-secondary text-primary py-1 px-4'>
-              Our Barber
+              {t('about.our.barber')}
             </p>
-            <h1 className='text-uppercase'>Meet Our Barber</h1>
+            <h1 className='text-uppercase'>{t('about.meet.barber')}</h1>
           </div>
           <div className='row g-4'>
             <div

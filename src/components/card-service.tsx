@@ -16,6 +16,7 @@ export default function CardService({
   duration,
 }: ServiceData) {
   const { t } = useI18n()
+
   return (
     <div className='d-flex mb-3 gap-3'>
       <img
@@ -31,14 +32,14 @@ export default function CardService({
       <div>
         <h5 className='card-title'>
           <span className='badge bg-success me-2 rounded-pill'>
-            {t('booking.your_choice')}
+            {t('appointment.your_choice')}
           </span>
           {title}
         </h5>
         <p className='card-text mb-0' style={{ fontSize: '0.9rem' }}>
-          {t('booking.duration')}: <span className='text-theme'>{duration}</span>
+          {t('general.duration')}: <span className='text-white'>{duration}</span>
         </p>
-        <p className='card-text text-muted'>{t('booking.no_reviews')}</p>
+        <p className='card-text text-muted'>{t('appointment.no_reviews')}</p>
       </div>
     </div>
   )

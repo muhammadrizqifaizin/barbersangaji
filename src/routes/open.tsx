@@ -7,6 +7,7 @@ export const Route = createFileRoute('/open')({
 
 export function Open() {
   const { t } = useI18n()
+
   return (
     <>
       <div
@@ -15,25 +16,25 @@ export function Open() {
       >
         <div className='container text-center py-5'>
           <h1 className='display-3 text-white text-uppercase mb-3 animated slideInDown'>
-            {t('page.open')}
+            {t('open.title')}
           </h1>
           <nav aria-label='breadcrumb animated slideInDown'>
             <ol className='breadcrumb justify-content-center text-uppercase mb-0'>
               <li className='breadcrumb-item'>
                 <a className='text-white' href='/'>
-                  {t('nav.home')}
+                  {t('breadcrumb.home')}
                 </a>
               </li>
               <li className='breadcrumb-item'>
                 <a className='text-white' href='#'>
-                  {t('nav.pages')}
+                  {t('breadcrumb.pages')}
                 </a>
               </li>
               <li
                 className='breadcrumb-item text-primary active'
                 aria-current='page'
               >
-                {t('page.open')}
+                {t('open.title')}
               </li>
             </ol>
           </nav>
@@ -55,46 +56,46 @@ export function Open() {
             <div className='col-lg-6 wow fadeIn' data-wow-delay='0.5s'>
               <div className='bg-secondary h-100 d-flex flex-column justify-content-center p-5'>
                 <p className='d-inline-flex bg-dark text-primary py-1 px-4 me-auto'>
-                  {t('home.open.title')}
+                  {t('open.subtitle')}
                 </p>
                 <h1 className='text-uppercase mb-4'>
-                  {t('home.open.heading')}
+                  {t('open.heading')}
                 </h1>
                 <div>
                   <div className='d-flex justify-content-between border-bottom py-2'>
-                    <h6 className='text-uppercase mb-0'>{t('home.open.mon')}</h6>
+                    <h6 className='text-uppercase mb-0'>{t('open.day.monday')}</h6>
                     <span className='text-uppercase'>04 PM - 10 PM</span>
                   </div>
                   <div className='d-flex justify-content-between border-bottom py-2'>
-                    <h6 className='text-uppercase mb-0'>{t('home.open.tue')}</h6>
+                    <h6 className='text-uppercase mb-0'>{t('open.day.tuesday')}</h6>
                     <span className='text-uppercase'>04 PM - 10 PM</span>
                   </div>
                   <div className='d-flex justify-content-between border-bottom py-2'>
-                    <h6 className='text-uppercase mb-0'>{t('home.open.wed')}</h6>
+                    <h6 className='text-uppercase mb-0'>{t('open.day.wednesday')}</h6>
                     <span className='text-uppercase'>04 PM - 10 PM</span>
                   </div>
                   <div className='d-flex justify-content-between border-bottom py-2'>
-                    <h6 className='text-uppercase mb-0'>{t('home.open.thu')}</h6>
+                    <h6 className='text-uppercase mb-0'>{t('open.day.thursday')}</h6>
                     <span className='text-uppercase'>04 PM - 10 PM</span>
                   </div>
                   <div className='d-flex justify-content-between border-bottom py-2'>
-                    <h6 className='text-uppercase mb-0'>{t('home.open.fri')}</h6>
+                    <h6 className='text-uppercase mb-0'>{t('open.day.friday')}</h6>
                     <span className='text-uppercase'>02 PM - 10 PM</span>
                   </div>
                   <div className='d-flex justify-content-between border-bottom py-2'>
-                    <h6 className='text-uppercase mb-0'>{t('home.open.sat')}</h6>
+                    <h6 className='text-uppercase mb-0'>{t('open.day.saturday')}</h6>
                     <span className='text-uppercase'>10 AM - 10 PM</span>
                   </div>
                   <div className='d-flex justify-content-between border-bottom py-2'>
-                    <h6 className='text-uppercase mb-0'>{t('home.open.sun')}</h6>
+                    <h6 className='text-uppercase mb-0'>{t('open.day.sunday')}</h6>
                     <span className='text-uppercase'>10 AM - 10 PM</span>
                   </div>
                   <div className='d-flex justify-content-between py-2'>
                     <h6 className='text-uppercase mb-0'>
-                      {t('home.open.closed_msg')}
+                      {t('open.note.closed')}
                     </h6>
                     <span className='text-uppercase text-primary'>
-                      {t('home.open.closed')}
+                      {t('open.time.closed')}
                     </span>
                   </div>
                 </div>

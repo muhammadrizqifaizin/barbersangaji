@@ -11,12 +11,12 @@ export default function Footer() {
       <div className='container py-5'>
         <div className='row g-5'>
           <div className='col-lg-4 col-md-6'>
-            <h4 className='text-uppercase mb-4'>{t('footer.touch')}</h4>
+            <h4 className='text-uppercase mb-4'>{t('footer.getInTouch')}</h4>
             <div className='d-flex align-items-center mb-2'>
               <div className='btn-square bg-dark flex-shrink-0 me-3'>
                 <span className='fa fa-map-marker-alt text-primary'></span>
               </div>
-              <span>{t('hero.location')}</span>
+              <span>{t('hero.subtitle1')}</span>
             </div>
             <div className='d-flex align-items-center mb-2'>
               <div className='btn-square bg-dark flex-shrink-0 me-3'>
@@ -32,15 +32,15 @@ export default function Footer() {
             </div>
           </div>
           <div className='col-lg-4 col-md-6'>
-            <h4 className='text-uppercase mb-4'>{t('footer.links')}</h4>
+            <h4 className='text-uppercase mb-4'>{t('footer.quickLinks')}</h4>
             <a className='btn btn-link' href='/about'>
-              {t('nav.about')}
+              {t('footer.aboutUs')}
             </a>
             <a className='btn btn-link' href='/contact'>
-              {t('nav.contact')}
+              {t('footer.contact')}
             </a>
             <a className='btn btn-link' href='/service'>
-              {t('footer.our_services')}
+              {t('footer.ourServices')}
             </a>
             <a className='btn btn-link' href=''>
               {t('footer.terms')}
@@ -55,13 +55,13 @@ export default function Footer() {
               <input
                 className='form-control border-0 w-100 py-3 ps-4 pe-5'
                 type='text'
-                placeholder={t('footer.email_placeholder')}
+                placeholder={t('footer.placeholder.email')}
               />
               <button
                 type='button'
                 className='btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2'
               >
-                {t('btn.signup')}
+                {t('footer.signup')}
               </button>
             </div>
             <div className='d-flex pt-1 m-n1'>
@@ -101,7 +101,7 @@ export default function Footer() {
               <a className='border-bottom' href='https://siaktive.my.id/'>
                 {t('brand.name')}
               </a>
-              , {t('footer.copyright')}
+              , {t('footer.rights')}
             </div>
             <div className='col-md-6 text-center text-md-end'>
               {t('footer.designed')}{' '}

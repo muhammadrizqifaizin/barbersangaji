@@ -1,12 +1,10 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { useI18n } from '../lib/i18n'
 
 export const Route = createFileRoute('/content')({
   component: Content,
 })
 
 export function Content() {
-  const { t } = useI18n()
   function playVideo(imgElement: HTMLImageElement) {
     const videoElement = imgElement.nextElementSibling as HTMLVideoElement // Ambil elemen video
     imgElement.style.display = 'none' // Sembunyikan gambar
@@ -22,25 +20,25 @@ export function Content() {
       >
         <div className='container text-center py-5'>
           <h1 className='display-3 text-white text-uppercase mb-3 animated slideInDown'>
-            {t('page.content')}
+            Content Barber Sangaji
           </h1>
           <nav aria-label='breadcrumb animated slideInDown'>
             <ol className='breadcrumb justify-content-center text-uppercase mb-0'>
               <li className='breadcrumb-item'>
                 <a className='text-white' href='#'>
-                  {t('nav.home')}
+                  Home
                 </a>
               </li>
               <li className='breadcrumb-item'>
                 <a className='text-white' href='#'>
-                  {t('nav.pages')}
+                  Pages
                 </a>
               </li>
               <li
                 className='breadcrumb-item text-primary active'
                 aria-current='page'
               >
-                {t('page.content')}
+                Content Barber Sangaji
               </li>
             </ol>
           </nav>
@@ -54,7 +52,9 @@ export function Content() {
             data-wow-delay='0.1s'
             style={{ maxWidth: '600px' }}
           >
-            <h1 className='text-uppercase'>{t('content.video_heading')}</h1>
+            <h1 className='text-uppercase'>
+              video of the result of barber sangaji
+            </h1>
           </div>
           <div className='row g-4'>
             <div
@@ -71,7 +71,7 @@ export function Content() {
                   />
                   <video className='img-fluid' controls>
                     <source src='/video/video1.mp4' type='video/mp4' />
-                  {t('content.browser_no_video')}
+                    Browser Anda tidak mendukung video tag.
                   </video>
                   <div className='team-social'>
                     <a className='btn btn-square' href=''>
@@ -92,8 +92,8 @@ export function Content() {
                   </div>
                 </div>
                 <div className='bg-secondary text-center p-4'>
-                  <h5 className='text-uppercase'>{t('content.back_to_process')}</h5>
-                  <span className='text-primary'>{t('content.designation')}</span>
+                  <h5 className='text-uppercase'>back to the process</h5>
+                  <span className='text-primary'>Designation</span>
                 </div>
               </div>
             </div>
@@ -112,7 +112,7 @@ export function Content() {
                   />
                   <video className='img-fluid' controls>
                     <source src='/video/video2.mp4' type='video/mp4' />
-                  {t('content.browser_no_video')}
+                    Browser Anda tidak mendukung video tag.
                   </video>
                   <div className='team-social'>
                     <a className='btn btn-square' href=''>
@@ -130,8 +130,8 @@ export function Content() {
                   </div>
                 </div>
                 <div className='bg-secondary text-center p-4'>
-                  <h5 className='text-uppercase'>{t('content.back_to_process')}</h5>
-                  <span className='text-primary'>{t('content.designation')}</span>
+                  <h5 className='text-uppercase'>back to the process</h5>
+                  <span className='text-primary'>Designation</span>
                 </div>
               </div>
             </div>
@@ -150,7 +150,7 @@ export function Content() {
                   />
                   <video className='img-fluid' controls>
                     <source src='/video/video 3.mp4' type='video/mp4' />
-                  {t('content.browser_no_video')}
+                    Browser Anda tidak mendukung video tag.
                   </video>
                   <div className='team-social'>
                     <a className='btn btn-square' href=''>
@@ -168,8 +168,8 @@ export function Content() {
                   </div>
                 </div>
                 <div className='bg-secondary text-center p-4'>
-                  <h5 className='text-uppercase'>{t('content.back_to_process')}</h5>
-                  <span className='text-primary'>{t('content.designation')}</span>
+                  <h5 className='text-uppercase'>back to the process</h5>
+                  <span className='text-primary'>Designation</span>
                 </div>
               </div>
             </div>
@@ -188,7 +188,7 @@ export function Content() {
                   />
                   <video className='img-fluid' controls>
                     <source src='/video/video4.mp4' type='video/mp4' />
-                  {t('content.browser_no_video')}
+                    Browser Anda tidak mendukung video tag.
                   </video>
                   <div className='team-social'>
                     <a className='btn btn-square' href=''>
@@ -206,8 +206,8 @@ export function Content() {
                   </div>
                 </div>
                 <div className='bg-secondary text-center p-4'>
-                  <h5 className='text-uppercase'>{t('content.back_to_process')}</h5>
-                  <span className='text-primary'>{t('content.designation')}</span>
+                  <h5 className='text-uppercase'>back to the process</h5>
+                  <span className='text-primary'>Designation</span>
                 </div>
               </div>
             </div>
@@ -226,7 +226,7 @@ export function Content() {
                   />
                   <video className='img-fluid' controls>
                     <source src='/video/video5.mp4' type='video/mp4' />
-                  {t('content.browser_no_video')}
+                    Browser Anda tidak mendukung video tag.
                   </video>
                   <div className='team-social'>
                     <a className='btn btn-square' href=''>
@@ -244,8 +244,8 @@ export function Content() {
                   </div>
                 </div>
                 <div className='bg-secondary text-center p-4'>
-                  <h5 className='text-uppercase'>{t('content.back_to_process')}</h5>
-                  <span className='text-primary'>{t('content.designation')}</span>
+                  <h5 className='text-uppercase'>back to the process</h5>
+                  <span className='text-primary'>Designation</span>
                 </div>
               </div>
             </div>
@@ -264,7 +264,7 @@ export function Content() {
                   />
                   <video className='img-fluid' controls>
                     <source src='/video/video6.mp4' type='video/mp4' />
-                  {t('content.browser_no_video')}
+                    Browser Anda tidak mendukung video tag.
                   </video>
                   <div className='team-social'>
                     <a className='btn btn-square' href=''>
@@ -282,8 +282,8 @@ export function Content() {
                   </div>
                 </div>
                 <div className='bg-secondary text-center p-4'>
-                  <h5 className='text-uppercase'>{t('content.back_to_process')}</h5>
-                  <span className='text-primary'>{t('content.designation')}</span>
+                  <h5 className='text-uppercase'>back to the process</h5>
+                  <span className='text-primary'>Designation</span>
                 </div>
               </div>
             </div>
@@ -302,7 +302,7 @@ export function Content() {
                   />
                   <video className='img-fluid' controls>
                     <source src='/video/video7.mp4' type='video/mp4' />
-                  {t('content.browser_no_video')}
+                    Browser Anda tidak mendukung video tag.
                   </video>
                   <div className='team-social'>
                     <a className='btn btn-square' href=''>
@@ -320,8 +320,8 @@ export function Content() {
                   </div>
                 </div>
                 <div className='bg-secondary text-center p-4'>
-                  <h5 className='text-uppercase'>{t('content.back_to_process')}</h5>
-                  <span className='text-primary'>{t('content.designation')}</span>
+                  <h5 className='text-uppercase'>back to the process</h5>
+                  <span className='text-primary'>Designation</span>
                 </div>
               </div>
             </div>
@@ -340,7 +340,7 @@ export function Content() {
                   />
                   <video className='img-fluid' controls>
                     <source src='/video/8.mp4' type='video/mp4' />
-                  {t('content.browser_no_video')}
+                    Browser Anda tidak mendukung video tag.
                   </video>
                   <div className='team-social'>
                     <a className='btn btn-square' href=''>
@@ -358,8 +358,8 @@ export function Content() {
                   </div>
                 </div>
                 <div className='bg-secondary text-center p-4'>
-                  <h5 className='text-uppercase'>{t('content.back_to_process')}</h5>
-                  <span className='text-primary'>{t('content.designation')}</span>
+                  <h5 className='text-uppercase'>back to the process</h5>
+                  <span className='text-primary'>Designation</span>
                 </div>
               </div>
             </div>
@@ -373,7 +373,9 @@ export function Content() {
             data-wow-delay='0.1s'
             style={{ maxWidth: '600px' }}
           >
-            <h1 className='text-uppercase'>{t('content.photo_heading')}</h1>
+            <h1 className='text-uppercase'>
+              Photo of the result of Barber Sangaji
+            </h1>
           </div>
           <div className='row g-4'>
             <div
@@ -400,8 +402,8 @@ export function Content() {
                   </div>
                 </div>
                 <div className='bg-secondary text-center p-4'>
-                  <h5 className='text-uppercase'>{t('content.back_to_process')}</h5>
-                  <span className='text-primary'>{t('content.designation')}</span>
+                  <h5 className='text-uppercase'>back to the process</h5>
+                  <span className='text-primary'>Designation</span>
                 </div>
               </div>
             </div>

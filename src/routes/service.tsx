@@ -8,6 +8,7 @@ export const Route = createFileRoute('/service')({
 
 export function Service() {
   const { t } = useI18n()
+
   return (
     <>
       <div
@@ -16,25 +17,25 @@ export function Service() {
       >
         <div className='container text-center py-5'>
           <h1 className='display-3 text-white text-uppercase mb-3 animated slideInDown'>
-            {t('page.service')}
+            {t('service.title')}
           </h1>
           <nav aria-label='breadcrumb animated slideInDown'>
             <ol className='breadcrumb justify-content-center text-uppercase mb-0'>
               <li className='breadcrumb-item'>
-                <a className='text-white' href='/'>
-                  {t('nav.home')}
+                <a className='text-white' href='#'>
+                  {t('breadcrumb.home')}
                 </a>
               </li>
               <li className='breadcrumb-item'>
                 <a className='text-white' href='#'>
-                  {t('nav.pages')}
+                  {t('breadcrumb.pages')}
                 </a>
               </li>
               <li
                 className='breadcrumb-item text-primary active'
                 aria-current='page'
               >
-                {t('page.service')}
+                {t('service.title')}
               </li>
             </ol>
           </nav>
@@ -49,9 +50,9 @@ export function Service() {
             style={{ maxWidth: '600px' }}
           >
             <p className='d-inline-block bg-secondary text-primary py-1 px-4'>
-              {t('home.service.title')}
+              {t('service.subtitle')}
             </p>
-            <h1 className='text-uppercase'>{t('home.service.heading')}</h1>
+            <h1 className='text-uppercase'>{t('service.heading')}</h1>
           </div>
           <div className='row g-4'>
             <div
@@ -70,11 +71,11 @@ export function Service() {
                   />
                 </div>
                 <div className='ps-4'>
-                  <h3 className='text-uppercase mb-3'>{t('home.service.haircut')}</h3>
+                  <h3 className='text-uppercase mb-3'>{t('service.haircut.title')}</h3>
                   <p>
-                    {t('home.service.haircut_desc')}
+                    {t('service.haircut.desc')}
                   </p>
-                  <span className='text-uppercase text-primary'>{t('home.service.from')} 15K</span>
+                  <span className='text-uppercase text-primary'>{t('service.haircut.price')}</span>
                 </div>
                 <a className='btn btn-square' href='appointment?service=1'>
                   <i className='fa fa-plus text-primary'></i>
@@ -97,11 +98,11 @@ export function Service() {
                   />
                 </div>
                 <div className='ps-4'>
-                  <h3 className='text-uppercase mb-3'>{t('home.service.beard_trim')}</h3>
+                  <h3 className='text-uppercase mb-3'>{t('service.beard.title')}</h3>
                   <p>
-                    {t('home.service.beard_trim_desc')}
+                    {t('service.beard.desc')}
                   </p>
-                  <span className='text-uppercase text-primary'>{t('home.service.from')} 5K</span>
+                  <span className='text-uppercase text-primary'>{t('service.beard.price')}</span>
                 </div>
                 <a className='btn btn-square' href='appointment?service=2'>
                   <i className='fa fa-plus text-primary'></i>
@@ -120,11 +121,11 @@ export function Service() {
                   <img className='img-fluid' src='img/hair-dyeing.png' alt='' />
                 </div>
                 <div className='ps-4'>
-                  <h3 className='text-uppercase mb-3'>{t('home.service.hair_dyeing')}</h3>
+                  <h3 className='text-uppercase mb-3'>{t('service.dye.title')}</h3>
                   <p>
-                    {t('home.service.hair_dyeing_desc')}
+                    {t('service.dye.desc')}
                   </p>
-                  <span className='text-uppercase text-primary'>{t('home.service.from')} 90K</span>
+                  <span className='text-uppercase text-primary'>{t('service.dye.price')}</span>
                 </div>
                 <a className='btn btn-square' href='appointment?service=3'>
                   <i className='fa fa-plus text-primary'></i>
@@ -147,11 +148,11 @@ export function Service() {
                   />
                 </div>
                 <div className='ps-4'>
-                  <h3 className='text-uppercase mb-3'>{t('home.service.mustache')}</h3>
+                  <h3 className='text-uppercase mb-3'>{t('service.mustache.title')}</h3>
                   <p>
-                    {t('home.service.mustache_desc')}
+                    {t('service.mustache.desc')}
                   </p>
-                  <span className='text-uppercase text-primary'>{t('home.service.from')} 5K</span>
+                  <span className='text-uppercase text-primary'>{t('service.mustache.price')}</span>
                 </div>
                 <a className='btn btn-square' href='appointment?service=4'>
                   <i className='fa fa-plus text-primary'></i>
@@ -170,7 +171,7 @@ export function Service() {
             style={{ maxWidth: '600px' }}
           >
             <p className='d-inline-block bg-secondary text-primary py-1 px-4'>
-              {t('testimonial.title')}
+              {t('testimonial.subtitle')}
             </p>
             <h1 className='text-uppercase'>{t('testimonial.heading')}</h1>
           </div>

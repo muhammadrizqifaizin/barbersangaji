@@ -7,6 +7,7 @@ export const Route = createFileRoute('/contact')({
 
 export function Contact() {
   const { t } = useI18n()
+  
   return (
     <>
       <div
@@ -15,25 +16,25 @@ export function Contact() {
       >
         <div className='container text-center py-5'>
           <h1 className='display-3 text-white text-uppercase mb-3 animated slideInDown'>
-            {t('page.contact')}
+            {t('contact.title')}
           </h1>
           <nav aria-label='breadcrumb animated slideInDown'>
             <ol className='breadcrumb justify-content-center text-uppercase mb-0'>
               <li className='breadcrumb-item'>
                 <a className='text-white' href='/'>
-                  {t('nav.home')}
+                  {t('breadcrumb.home')}
                 </a>
               </li>
               <li className='breadcrumb-item'>
                 <a className='text-white' href='#'>
-                  {t('nav.pages')}
+                  {t('breadcrumb.pages')}
                 </a>
               </li>
               <li
                 className='breadcrumb-item text-primary active'
                 aria-current='page'
               >
-                {t('page.contact')}
+                {t('contact.title')}
               </li>
             </ol>
           </nav>
@@ -45,12 +46,12 @@ export function Contact() {
             <div className='col-lg-6 wow fadeIn' data-wow-delay='0.1s'>
               <div className='bg-secondary p-5'>
                 <p className='d-inline-block bg-dark text-primary py-1 px-4'>
-                  {t('contact.title')}
+                  {t('contact.subtitle')}
                 </p>
                 <h1 className='text-uppercase mb-4'>
                   {t('contact.heading')}
                 </h1>
-                <p className='mb-4'>{t('contact.inactive')}</p>
+                <p className='mb-4'>{t('contact.form.inactive')}</p>
                 <form>
                   <div className='row g-3'>
                     <div className='col-md-6'>
@@ -59,9 +60,9 @@ export function Contact() {
                           type='text'
                           className='form-control bg-transparent'
                           id='name'
-                          placeholder={t('contact.name')}
+                          placeholder={t('contact.form.name')}
                         />
-                        <label htmlFor='name'>{t('contact.name')}</label>
+                        <label htmlFor='name'>{t('contact.form.name')}</label>
                       </div>
                     </div>
                     <div className='col-md-6'>
@@ -70,9 +71,9 @@ export function Contact() {
                           type='email'
                           className='form-control bg-transparent'
                           id='email'
-                          placeholder={t('contact.email')}
+                          placeholder={t('contact.form.email')}
                         />
-                        <label htmlFor='email'>{t('contact.email')}</label>
+                        <label htmlFor='email'>{t('contact.form.email')}</label>
                       </div>
                     </div>
                     <div className='col-12'>
@@ -81,20 +82,20 @@ export function Contact() {
                           type='text'
                           className='form-control bg-transparent'
                           id='subject'
-                          placeholder={t('contact.subject')}
+                          placeholder={t('contact.form.subject')}
                         />
-                        <label htmlFor='subject'>{t('contact.subject')}</label>
+                        <label htmlFor='subject'>{t('contact.form.subject')}</label>
                       </div>
                     </div>
                     <div className='col-12'>
                       <div className='form-floating'>
                         <textarea
                           className='form-control bg-transparent'
-                          placeholder={t('contact.message')}
+                          placeholder={t('contact.form.placeholder.message')}
                           id='message'
                           style={{ height: '100px' }}
                         ></textarea>
-                        <label htmlFor='message'>{t('contact.message')}</label>
+                        <label htmlFor='message'>{t('contact.form.message')}</label>
                       </div>
                     </div>
                     <div className='col-12'>
@@ -102,7 +103,7 @@ export function Contact() {
                         className='btn btn-primary w-100 py-3'
                         type='submit'
                       >
-                        {t('contact.send')}
+                        {t('contact.form.submit')}
                       </button>
                     </div>
                   </div>

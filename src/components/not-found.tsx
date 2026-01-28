@@ -1,8 +1,6 @@
 import { Link } from '@tanstack/react-router'
-import { useI18n } from '../lib/i18n'
 
 export default function NotFound() {
-  const { t } = useI18n()
   return (
     <>
       <div
@@ -11,18 +9,18 @@ export default function NotFound() {
       >
         <div className='container text-center py-5'>
           <h1 className='display-3 text-white text-uppercase mb-3 animated slideInDown'>
-            {t('notfound.header')}
+            404 Error
           </h1>
           <nav aria-label='breadcrumb animated slideInDown'>
             <ol className='breadcrumb justify-content-center text-uppercase mb-0'>
               <li className='breadcrumb-item'>
                 <a className='text-white' href='#'>
-                  {t('nav.home')}
+                  Home
                 </a>
               </li>
               <li className='breadcrumb-item'>
                 <a className='text-white' href='#'>
-                  {t('nav.pages')}
+                  Pages
                 </a>
               </li>
               <li
@@ -42,12 +40,13 @@ export default function NotFound() {
             <div className='col-lg-6'>
               <i className='bi bi-exclamation-triangle display-1 text-primary'></i>
               <h1 className='display-1'>404</h1>
-              <h1 className='mb-4'>{t('notfound.title')}</h1>
+              <h1 className='mb-4'>Page Not Found</h1>
               <p className='mb-4'>
-                {t('notfound.desc')}
+                We’re sorry, the page you have looked for does not exist in our
+                website! Maybe go to our home page or try to use a search?
               </p>
               <Link to='/' resetScroll className='btn btn-primary py-3 px-5'>
-                {t('notfound.back_home')}
+                Go Back To Home
               </Link>
             </div>
           </div>

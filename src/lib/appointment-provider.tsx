@@ -61,22 +61,22 @@ export const AppointmentProvider = ({
   // --- LOGIKA HARGA OTOMATIS (Derived State) ---
   const transportPrice = useMemo(() => {
     if (distance === null) return 0
-    
+
     const baseOngkir = 12 // 12K (Flat 1 - 3 KM)
     const tarifPerKm = 4  // 4K per KM (Kelebihan > 3 KM)
 
     // UPDATE LOGIKA:
     if (distance < 1) {
       // Jarak di bawah 1 KM (misal 0.9) = GRATIS
-      return 0 
+      return 0
     } else if (distance <= 3) {
       // Jarak 1.0 KM sampai 3.0 KM = FLAT 12K
-      return baseOngkir 
+      return baseOngkir
     } else {
       // Jarak > 3 KM: 12K + (Sisa KM * 4K)
       const extraDistance = distance - 3
       const rawOngkir = baseOngkir + (extraDistance * tarifPerKm)
-      
+
       // Pembulatan ke atas (Ceil) agar angka cantik
       return Math.ceil(rawOngkir)
     }
@@ -85,7 +85,7 @@ export const AppointmentProvider = ({
   const total = useMemo(() => {
     const servicePrice = service?.price || 0
     const extrasPrice = extras.reduce((acc, curr) => acc + curr.price, 0)
-    
+
     // Total otomatis selalu update saat distance/service berubah
     return servicePrice + extrasPrice + transportPrice
   }, [service, extras, transportPrice])
@@ -93,7 +93,7 @@ export const AppointmentProvider = ({
 
   // --- Handlers ---
   const handleSelectedService = (service: ServiceData) => setService(service)
-  
+
   const handleAddExtras = (data: Extra) => {
     if (!extras.find((item) => item.title === data.title)) {
       setExtras((prev) => [...prev, data])
@@ -114,7 +114,7 @@ export const AppointmentProvider = ({
   // --- WhatsApp Logic ---
   const handleBookNow = () => {
     if (service && barber && distance !== null && date && customerInfo) {
-      
+
       const formatIDR = (price: number) => {
         return new Intl.NumberFormat('id-ID', {
           style: 'currency',

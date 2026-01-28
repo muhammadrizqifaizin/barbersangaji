@@ -18,7 +18,9 @@ export const Route = createRootRoute({
         <ScrollRestoration getKey={(location) => location.pathname} />
         <Navbar />
         <Spinner />
-        <Outlet />
+        <main style={{ paddingTop: '8-px' }}>
+          <Outlet />
+        </main>
         <Footer />
         <BackToTop />
       </AppointmentProvider>

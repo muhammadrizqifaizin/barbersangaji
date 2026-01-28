@@ -11,28 +11,27 @@ export default function ChooseBarber({
   setActiveTab: React.Dispatch<React.SetStateAction<TabPage>>
 }) {
   const { handleSelectedBarber } = useAppointment()
-  const { t } = useI18n()
 
   const barberData: BarberType[] = [
     {
       image: '/img/team-1.jpg',
       alt: 'Team 1 Image',
       name: 'Mr.z',
-      description: t('barber.desc.mrz'),
+      description: 'appointment.barber.mrz.desc',
     },
     {
       image: '/img/team-2.jpg',
       alt: 'Team 2 Image',
       name: 'Arif',
-      description: t('barber.desc.arif'),
+      description: 'appointment.barber.arif.desc',
     },
     {
       image: '/img/team-3.jpg',
       alt: 'Team 3 Image',
       name: 'Karol',
-      description: t('barber.desc.karol'),
+      description: 'appointment.barber.karol.desc',
     },
-  
+
   ]
 
   return (
@@ -59,6 +58,7 @@ export function Barber({
   handleSelectedBarber: (barber: BarberType) => void
 }) {
   const { t } = useI18n()
+
   return (
     <div className='bg-light-subtle p-4 d-flex justify-content-between gap-5 align-items-center mt-3 appointment-barber-card'>
       <div className='d-flex gap-3 align-items-center'>
@@ -75,8 +75,8 @@ export function Barber({
         />
         <div>
           <h5>{data.name}</h5>
-          <p className='text-theme mb-0' style={{ fontSize: '0.9rem' }}>
-            {data.description}
+          <p className='text-white mb-0' style={{ fontSize: '0.9rem' }}>
+            {t(data.description)}
           </p>
         </div>
       </div>
@@ -87,7 +87,7 @@ export function Barber({
           setActiveTab('Choose Location')
         }}
       >
-        {t('booking.choose')}
+        {t('appointment.choose')}
       </button>
     </div>
   )

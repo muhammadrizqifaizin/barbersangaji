@@ -37,6 +37,18 @@ export default function AppointmentService({ service }: { service: number }) {
     handleSelectedService(data)
   }, [])
 
+  // Helper to translate tab name
+  const getTabLabel = (tab: TabPage) => {
+    switch (tab) {
+      case 'Choose Extras': return t('appointment.tab.extras')
+      case 'Choose Barber': return t('appointment.tab.barber')
+      case 'Choose Location': return t('appointment.tab.location')
+      case 'Choose Datetime': return t('appointment.tab.datetime')
+      case 'Customer Info': return t('appointment.tab.info')
+      default: return tab
+    }
+  }
+
   return (
     <div className='w-100 appointment wow fadeInTop' data-wow-delay='0.4s'>
       <div className='d-flex gap-4 mw-100 container-appointment'>
@@ -64,17 +76,7 @@ export default function AppointmentService({ service }: { service: number }) {
                 <i className='fa fa-arrow-left'></i>
               </button>
             )}
-            <h4>
-              {activeTab === 'Choose Extras'
-                ? t('booking.tab.choose_extras')
-                : activeTab === 'Choose Barber'
-                ? t('booking.tab.choose_barber')
-                : activeTab === 'Choose Location'
-                ? t('booking.tab.choose_location')
-                : activeTab === 'Choose Datetime'
-                ? t('booking.tab.choose_datetime')
-                : t('booking.tab.customer_info')}
-            </h4>
+            <h4>{getTabLabel(activeTab)}</h4>
           </div>
           <div className='mt-3'>
             <TabContent

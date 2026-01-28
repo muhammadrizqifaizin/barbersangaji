@@ -10,6 +10,39 @@ export type Extra = {
   price: number
 }
 
+const extraData: Extra[] = [
+  {
+    image: '/img/oil.jpeg',
+    alt: 'Oil Image',
+    title: 'appointment.extra.oil',
+    price: 7,
+  },
+  {
+    image: '/img/wash-hair.jpeg',
+    alt: 'Wash Hair Image',
+    title: 'appointment.extra.wash',
+    price: 5,
+  },
+  {
+    image: '/img/pijat.jpg',
+    alt: 'Scalp Massage Image',
+    title: 'appointment.extra.massage',
+    price: 10,
+  },
+  {
+    image: '/img/high.jpg',
+    alt: 'Scalp Massage Image',
+    title: 'appointment.extra.highlight',
+    price: 150,
+  },
+  {
+    image: '/img/fullnih.png',
+    alt: 'Scalp Massage Image',
+    title: 'appointment.extra.coloring',
+    price: 250,
+  },
+]
+
 export default function ChooseExtras({
   data,
   setActiveTab,
@@ -19,49 +52,16 @@ export default function ChooseExtras({
 }) {
   const { t } = useI18n()
 
-  const extraData: Extra[] = [
-    {
-      image: '/img/oil.jpeg',
-      alt: 'Oil Image',
-      title: t('extra.oil'),
-      price: 7,
-    },
-    {
-      image: '/img/wash-hair.jpeg',
-      alt: 'Wash Hair Image',
-      title: t('extra.wash'),
-      price: 5,
-    },
-    {
-      image: '/img/pijat.jpg',
-      alt: 'Scalp Massage Image',
-      title: t('extra.massage'),
-      price: 10,
-    },
-    {
-      image: '/img/high.jpg',
-      alt: 'Highlight Image',
-      title: t('extra.highlight'),
-      price: 150,
-    },
-    {
-      image: '/img/fullnih.png',
-      alt: 'Full Colouring Image',
-      title: t('extra.full_color'),
-      price: 250,
-    },
-  ]
-
   return (
     <>
       <CardService
         image={data.image}
         alt={data.alt}
-        title={data.title}
+        title={t(data.title)}
         duration={data.duration}
         price={data.price}
       />
-      <p className='mt-4 mb-0'>{extraData.length} {t('booking.extras_available')}</p>
+      <p className='mt-4 mb-0'>3 {t('appointment.extras_available')}</p>
       {extraData.map((data, index) => (
         <Extra data={data} name={`extra-${index}`} key={index} />
       ))}
@@ -70,7 +70,7 @@ export default function ChooseExtras({
           className='btn btn-primary mt-4'
           onClick={() => setActiveTab('Choose Barber')}
         >
-          {t('booking.continue')}
+          {t('general.continue')}
         </button>
       </div>
     </>
@@ -79,6 +79,7 @@ export default function ChooseExtras({
 
 export function Extra({ data, name }: { data: Extra; name: string }) {
   const { handleAddExtras, handleRemoveExtras, extras } = useAppointment()
+  const { t } = useI18n()
 
   return (
     <label htmlFor={name} className='w-100 mt-3'>
@@ -91,7 +92,7 @@ export function Extra({ data, name }: { data: Extra; name: string }) {
               style={{ width: '50px', height: '50px', borderRadius: '6px' }}
             />
             <div className='d-flex flex-column justify-content-center'>
-              <h6 className='fs-medium'>{data.title}</h6>
+              <h6 className='fs-medium'>{t(data.title)}</h6>
               <p className='text-primary mb-0'>{data.price}K</p>
             </div>
           </div>

@@ -63,7 +63,7 @@ export default function ChooseLocation({
         handleSetCoordinate([coords.latitude, coords.longitude])
       },
       () => {
-        alert(t('location.permission_denied'))
+        alert('Permission denied. Cannot proceed.')
       }
     )
   }
@@ -110,13 +110,13 @@ export default function ChooseLocation({
               }}
               icon={MarkerIcon}
             >
-              <Popup>{t('location.your_location')}</Popup>
+              <Popup>{t('location.your')}</Popup>
               <Polyline positions={route} color='blue' />
               <MapEvents onMapClick={handleMapClick} />
             </Marker>
           </MapContainer>
           <h5 className='mt-3'>{t('location.distance')}</h5>
-          <p className='text-theme'>{distance} {t('location.km')}</p>
+          <p className='text-white'>{distance} Kilometer</p>
           <div className='w-100 d-flex justify-content-end'>
             <button
               className='btn btn-primary mt-4'
@@ -124,7 +124,7 @@ export default function ChooseLocation({
                 setActiveTab('Choose Datetime')
               }}
             >
-              {t('booking.continue')}
+              {t('general.continue')}
             </button>
           </div>
         </>
@@ -139,23 +139,30 @@ export default function ChooseLocation({
           <h5 className='mt-3'>{t('location.walkthrough')}</h5>
           <ol>
             <li>
-              {t('location.step1')}
+              In Chrome, click the menu button and then 'Settings' (or just
+              visit 'chrome://settings/').
             </li>
             <li>
-              {t('location.step2')}
+              In Settings, start typing 'clear browsing data' into the search
+              bar and select 'Clear browsing data' under 'Privacy and Security'
+              when it appears.
             </li>
             <li>
-              {t('location.step3')}
+              In the 'Clear Browsing Data' pop-up, click on the 'Advanced' tab.
             </li>
             <li>
-              {t('location.step4')}
+              Set time range to 'Last hour' (or longer depending on when you
+              think Chrome began to block geolocation).
             </li>
             <li>
-              {t('location.step5')}
+              Check the 'Hosted app data' checkbox (it should be at the bottom
+              of the list), and deselect all of the other checkboxes.
             </li>
             <li>Click 'Clear Data'.</li>
             <li>
-              {t('location.step7')}
+              Go back to the page which is trying to request geolocation. The
+              geolocation permission dialogue should appear next time you
+              attempt to trigger it.
             </li>
           </ol>
           <button className='btn btn-primary mt-3' onClick={handleLocation}>

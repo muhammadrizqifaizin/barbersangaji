@@ -7,6 +7,7 @@ export const Route = createFileRoute('/team')({
 
 export function Team() {
   const { t } = useI18n()
+
   return (
     <>
       <div
@@ -15,25 +16,25 @@ export function Team() {
       >
         <div className='container text-center py-5'>
           <h1 className='display-3 text-white text-uppercase mb-3 animated slideInDown'>
-            {t('page.team')}
+            {t('nav.team')}
           </h1>
           <nav aria-label='breadcrumb animated slideInDown'>
             <ol className='breadcrumb justify-content-center text-uppercase mb-0'>
               <li className='breadcrumb-item'>
                 <a className='text-white' href='/'>
-                  {t('nav.home')}
+                  {t('breadcrumb.home')}
                 </a>
               </li>
               <li className='breadcrumb-item'>
                 <a className='text-white' href='#'>
-                  {t('nav.pages')}
+                  {t('breadcrumb.pages')}
                 </a>
               </li>
               <li
                 className='breadcrumb-item text-primary active'
                 aria-current='page'
               >
-                {t('page.team')}
+                {t('nav.team')}
               </li>
             </ol>
           </nav>
@@ -48,9 +49,9 @@ export function Team() {
             style={{ maxWidth: '600px' }}
           >
             <p className='d-inline-block bg-secondary text-primary py-1 px-4'>
-              {t('home.team.title')}
+              {t('about.our.barber')}
             </p>
-            <h1 className='text-uppercase'>{t('home.team.heading')}</h1>
+            <h1 className='text-uppercase'>{t('about.meet.barber')}</h1>
           </div>
           <div className='row g-4'>
             <div

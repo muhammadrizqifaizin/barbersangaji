@@ -160,13 +160,6 @@ body {
   height: 3rem;
 }
 
-#header-carousel {
-  margin-top: 80px;
-}
-#header-carousel .carousel-item {
-  height: calc(100vh - 80px);
-}
-
 @media (max-width: 768px) {
   #header-carousel .carousel-item {
     position: relative;
@@ -186,7 +179,6 @@ body {
     linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
     url(../img/carousel-1.jpg) center center no-repeat;
   background-size: cover;
-  margin-top: 80px;
 }
 
 .breadcrumb-item + .breadcrumb-item::before {
@@ -365,16 +357,6 @@ body {
   width: 100%;
   height: 150px;
   object-fit: cover;
-}
-
-/* Reduced motion for performance and accessibility */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-    scroll-behavior: auto !important;
-  }
 }
 
 .card-content {
@@ -719,59 +701,4 @@ body {
 
 .animate-slide-in {
   animation: slide-in 0.3s ease-out;
-}
-
-/* --- LIGHT MODE SUPPORT --- */
-body.theme-light {
-  background-color: #ffffff;
-  color: #212529;
-}
-
-.theme-light .bg-secondary {
-  background-color: #f8f9fa !important;
-}
-
-.theme-light .bg-light-subtle {
-  background-color: #e9ecef !important;
-}
-
-.theme-light .text-white {
-  color: #212529 !important;
-}
-
-/* Exceptions where text should remain white even in light mode */
-.theme-light .page-header .text-white,
-.theme-light .carousel-item .text-white,
-.theme-light .carousel-caption .text-white,
-.theme-light .footer .text-white,
-.theme-light .btn-primary,
-.theme-light .bg-primary,
-.theme-light .navbar .text-primary {
-  color: #ffffff !important;
-}
-
-/* Ensure navbar brand text color in light mode if it uses text-primary */
-.theme-light .navbar .navbar-brand .text-primary {
-   color: #eb1616 !important; /* Keep primary red for brand */
-}
-
-/* Helper for dynamic theme text if needed */
-.text-theme {
-  color: var(--light);
-}
-.theme-light .text-theme {
-  color: #212529;
-}
-
-/* Fix text-light in Light Mode (make it dark on light backgrounds) */
-.theme-light .text-light {
-  color: #212529 !important;
-}
-
-/* Fix text-white/light inside bg-dark in Light Mode (keep it white) */
-.theme-light .bg-dark .text-white,
-.theme-light .btn-dark .text-white,
-.theme-light .bg-dark .text-light,
-.theme-light .btn-dark .text-light {
-  color: #ffffff !important;
 }

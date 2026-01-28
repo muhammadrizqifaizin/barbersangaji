@@ -18,37 +18,38 @@ export const Route = createFileRoute('/appointment')({
   component: Appointment,
 })
 
+// Gunakan KEY i18n untuk title dan description
 export const serviceData: ServiceData[] = [
   {
     image: '/img/carousel-2.jpg',
     alt: 'Haircut Image',
     duration: '45m',
-    description: '', // use translations via t()
-    title: '', // use translations via t()
+    description: 'service.haircut.desc',
+    title: 'service.haircut.title',
     price: 15,
   },
   {
     image: '/img/beardtrim.jpg',
     alt: 'Beard Trim Image',
     duration: '15m',
-    title: '',
-    description: '',
+    title: 'service.beard.title',
+    description: 'service.beard.desc',
     price: 5,
   },
   {
     image: '/img/fullnih.png',
     alt: 'Hair Dyeing Image',
     duration: '3h',
-    title: '',
-    description: '',
+    title: 'service.dye.title',
+    description: 'service.dye.desc',
     price: 90,
   },
   {
     image: '/img/mustache.jpg',
     alt: 'Mustache Image',
     duration: '15m',
-    title: '',
-    description: '',
+    title: 'service.mustache.title',
+    description: 'service.mustache.desc',
     price: 5,
   },
 ]
@@ -71,11 +72,11 @@ export function Appointment() {
           <p className='d-inline-block bg-secondary text-primary py-1 px-4'>
             {t('nav.appointment')}
           </p>
-          <h1 className='text-uppercase'>{t('home.service.heading')}</h1>
+          <h1 className='text-uppercase'>{t('service.heading')}</h1>
         </div>
         <div className='row g-4'>
           {serviceData.map(
-            ({ image, price, duration, alt }, index) => (
+            ({ image, price, duration, title, alt, description }, index) => (
               <div
                 className='col-lg-4 col-md-6 wow fadeInUp'
                 data-wow-delay='0.1s'
@@ -107,7 +108,7 @@ export function Appointment() {
                         backgroundColor: 'var(--primary)',
                       }}
                     >
-                      {t('home.service.title')}
+                      Primary
                     </span>
                     <span
                       className='badge rounded-pill position-absolute z-1'
@@ -124,29 +125,11 @@ export function Appointment() {
                   {/* KONTEN */}
                   <div className='p-4 flex-grow-1 d-flex flex-column justify-content-between'>
                     <div>
-                      <h3 className='text-uppercase mb-3'>
-                        {index === 0
-                          ? t('home.service.haircut')
-                          : index === 1
-                          ? t('home.service.beard_trim')
-                          : index === 2
-                          ? t('home.service.hair_dyeing')
-                          : t('home.service.mustache')}
-                      </h3>
-                      <p>
-                        {t('booking.duration')} {duration}
-                      </p>
-                      <p>
-                        {index === 0
-                          ? t('home.service.haircut_desc')
-                          : index === 1
-                          ? t('home.service.beard_trim_desc')
-                          : index === 2
-                          ? t('home.service.hair_dyeing_desc')
-                          : t('home.service.mustache_desc')}
-                      </p>
+                      <h3 className='text-uppercase mb-3'>{t(title)}</h3>
+                      <p>{t('general.duration')} {duration}</p>
+                      <p>{t(description)}</p>
                       <span className='text-uppercase text-primary d-block'>
-                        {t('home.service.from')} {price}K
+                        {t('general.from')} {price}K
                       </span>
                     </div>
                     <Link
@@ -154,7 +137,7 @@ export function Appointment() {
                       search={{ service: index + 1 }}
                     >
                       <button type='button' className='btn btn-primary mt-3'>
-                        {t('btn.book_now')}
+                        {t('general.book_now')}
                       </button>
                     </Link>
                   </div>

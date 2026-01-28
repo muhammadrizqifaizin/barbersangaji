@@ -9,7 +9,7 @@ export const Route = createFileRoute('/')({
 
 export function Index() {
   const { t } = useI18n()
-  
+
   return (
     <>
       <Carousel />
@@ -19,46 +19,47 @@ export function Index() {
         <div className='container'>
           <div className='row g-5'>
             <div className='col-lg-6 wow fadeIn' data-wow-delay='0.1s'>
-              <div className='d-flex flex-column'>
+              <div className='d-flex flex-column position-relative'>
                 <img
                   className='img-fluid w-75 align-self-end'
                   src='/img/about.jpg'
                   alt='About Image'
+                  style={{ minHeight: '300px', objectFit: 'cover', backgroundColor: '#343a40' }}
                 />
                 <div
                   className='w-50 bg-secondary p-5'
-                  style={{ marginTop: '-25%' }}
+                  style={{ marginTop: '-25%', zIndex: 1, position: 'relative' }}
                 >
-                  <h1 className='text-uppercase text-primary mb-3'>{t('home.exp.years')}</h1>
-                  <h2 className='text-uppercase mb-0'>{t('home.exp.title')}</h2>
+                  <h1 className='text-uppercase text-primary mb-3'>{t('about.experience.years')}</h1>
+                  <h2 className='text-uppercase mb-0'>{t('about.experience.title')}</h2>
                 </div>
               </div>
             </div>
             <div className='col-lg-6 wow fadeIn' data-wow-delay='0.5s'>
               <p className='d-inline-block bg-secondary text-primary py-1 px-4'>
-                {t('home.about.title')}
+                {t('about.us')}
               </p>
               <h1 className='text-uppercase mb-4'>
-                {t('home.about.heading')}
+                {t('about.heading')}
               </h1>
               <p>
-                {t('home.about.desc1')}
+                {t('about.desc1')}
               </p>
               <p className='mb-4'>
                 {' '}
-                {t('home.about.desc2')}
+                {t('about.desc2')}
               </p>
               <div className='row g-4'>
                 <div className='col-md-6'>
-                  <h3 className='text-uppercase mb-3'>{t('home.about.since')}</h3>
+                  <h3 className='text-uppercase mb-3'>{t('about.since.title')}</h3>
                   <p className='mb-0'>
-                    {t('home.about.since_desc')}
+                    {t('about.since.desc')}
                   </p>
                 </div>
                 <div className='col-md-6'>
-                  <h3 className='text-uppercase mb-3'>{t('home.about.clients')}</h3>
+                  <h3 className='text-uppercase mb-3'>{t('about.clients.title')}</h3>
                   <p className='mb-0'>
-                    {t('home.about.clients_desc')}
+                    {t('about.clients.desc')}
                   </p>
                 </div>
               </div>
@@ -72,134 +73,134 @@ export function Index() {
      <div className='container-xxl py-5'>
   <div className='container'>
     <div
-      className='text-center mx-auto mb-5 wow fadeInUp'
-      data-wow-delay='0.1s'
-      style={{ maxWidth: '600px' }}
-    >
-      <p className='d-inline-block bg-secondary text-primary py-1 px-4'>
-        {t('home.service.title')}
-      </p>
-      <h1 className='text-uppercase'>{t('home.service.heading')}</h1>
-    </div>
-
-    {/* PERUBAHAN DI SINI: tambahkan 'justify-content-center' */}
-    <div className='row g-4 justify-content-center'>
-      
-      {/* Service 1: Haircut */}
-      <div
-        className='col-lg-4 col-md-6 wow fadeInUp'
+        className='text-center mx-auto mb-5 wow fadeInUp'
         data-wow-delay='0.1s'
+        style={{ maxWidth: '600px' }}
       >
-        <div className='service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0'>
-          <div
-            className='bg-dark d-flex flex-shrink-0 align-items-center justify-content-center'
-            style={{ width: '60px', height: '60px' }}
-          >
-            <img
-              className='img-fluid'
-              src='/img/haircut.png'
-              alt='Haircut Image'
-            />
-          </div>
-          <div className='ps-4'>
-            <h3 className='text-uppercase mb-3'>{t('home.service.haircut')}</h3>
-            <p>
-              {t('home.service.haircut_desc')}
-            </p>
-            <span className='text-uppercase text-primary'>{t('home.service.from')} 15K</span>
-          </div>
-          <a className='btn btn-square' href=''>
-            <i className='fa fa-plus text-primary'></i>
-          </a>
-        </div>
+        <p className='d-inline-block bg-secondary text-primary py-1 px-4'>
+          {t('service.subtitle')}
+        </p>
+        <h1 className='text-uppercase'>{t('service.heading')}</h1>
       </div>
 
-      {/* Service 2: Beard Trim */}
-      <div
-        className='col-lg-4 col-md-6 wow fadeInUp'
-        data-wow-delay='0.3s'
-      >
-        <div className='service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0'>
-          <div
-            className='bg-dark d-flex flex-shrink-0 align-items-center justify-content-center'
-            style={{ width: '60px', height: '60px' }}
-          >
-            <img
-              className='img-fluid'
-              src='/img/beard-trim.png'
-              alt='Beard Trim Image'
-            />
+      {/* PERUBAHAN DI SINI: tambahkan 'justify-content-center' */}
+      <div className='row g-4 justify-content-center'>
+        
+        {/* Service 1: Haircut */}
+        <div
+          className='col-lg-4 col-md-6 wow fadeInUp'
+          data-wow-delay='0.1s'
+        >
+          <div className='service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0'>
+            <div
+              className='bg-dark d-flex flex-shrink-0 align-items-center justify-content-center'
+              style={{ width: '60px', height: '60px' }}
+            >
+              <img
+                className='img-fluid'
+                src='/img/haircut.png'
+                alt='Haircut Image'
+              />
+            </div>
+            <div className='ps-4'>
+              <h3 className='text-uppercase mb-3'>{t('service.haircut.title')}</h3>
+              <p>
+                {t('service.haircut.desc')}
+              </p>
+              <span className='text-uppercase text-primary'>{t('service.haircut.price')}</span>
+            </div>
+            <a className='btn btn-square' href=''>
+              <i className='fa fa-plus text-primary'></i>
+            </a>
           </div>
-          <div className='ps-4'>
-            <h3 className='text-uppercase mb-3'>{t('home.service.beard_trim')}</h3>
-            <p>
-              {t('home.service.beard_trim_desc')}
-            </p>
-            <span className='text-uppercase text-primary'>{t('home.service.from')} 5K</span>
-          </div>
-          <a className='btn btn-square' href=''>
-            <i className='fa fa-plus text-primary'></i>
-          </a>
         </div>
-      </div>
 
-      {/* Service 3: Hair Dyeing */}
-      <div
-        className='col-lg-4 col-md-6 wow fadeInUp'
-        data-wow-delay='0.1s'
-      >
-        <div className='service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0'>
-          <div
-            className='bg-dark d-flex flex-shrink-0 align-items-center justify-content-center'
-            style={{ width: '60px', height: '60px' }}
-          >
-            <img
-              className='img-fluid'
-              src='/img/hair-dyeing.png'
-              alt='Hair Dyeing Image'
-            />
+        {/* Service 2: Beard Trim */}
+        <div
+          className='col-lg-4 col-md-6 wow fadeInUp'
+          data-wow-delay='0.3s'
+        >
+          <div className='service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0'>
+            <div
+              className='bg-dark d-flex flex-shrink-0 align-items-center justify-content-center'
+              style={{ width: '60px', height: '60px' }}
+            >
+              <img
+                className='img-fluid'
+                src='/img/beard-trim.png'
+                alt='Beard Trim Image'
+              />
+            </div>
+            <div className='ps-4'>
+              <h3 className='text-uppercase mb-3'>{t('service.beard.title')}</h3>
+              <p>
+                {t('service.beard.desc')}
+              </p>
+              <span className='text-uppercase text-primary'>{t('service.beard.price')}</span>
+            </div>
+            <a className='btn btn-square' href=''>
+              <i className='fa fa-plus text-primary'></i>
+            </a>
           </div>
-          <div className='ps-4'>
-            <h3 className='text-uppercase mb-3'>{t('home.service.hair_dyeing')}</h3>
-            <p>
-              {t('home.service.hair_dyeing_desc')}
-            </p>
-            <span className='text-uppercase text-primary'>{t('home.service.from')} 90K</span>
-          </div>
-          <a className='btn btn-square' href=''>
-            <i className='fa fa-plus text-primary'></i>
-          </a>
         </div>
-      </div>
 
-      {/* Service 4: Mustache */}
-      <div
-        className='col-lg-4 col-md-6 wow fadeInUp'
-        data-wow-delay='0.3s'
-      >
-        <div className='service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0'>
-          <div
-            className='bg-dark d-flex flex-shrink-0 align-items-center justify-content-center'
-            style={{ width: '60px', height: '60px' }}
-          >
-            <img
-              className='img-fluid'
-              src='/img/mustache.png'
-              alt='Mustache Image'
-            />
+        {/* Service 3: Hair Dyeing */}
+        <div
+          className='col-lg-4 col-md-6 wow fadeInUp'
+          data-wow-delay='0.1s'
+        >
+          <div className='service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0'>
+            <div
+              className='bg-dark d-flex flex-shrink-0 align-items-center justify-content-center'
+              style={{ width: '60px', height: '60px' }}
+            >
+              <img
+                className='img-fluid'
+                src='/img/hair-dyeing.png'
+                alt='Hair Dyeing Image'
+              />
+            </div>
+            <div className='ps-4'>
+              <h3 className='text-uppercase mb-3'>{t('service.dye.title')}</h3>
+              <p>
+                {t('service.dye.desc')}
+              </p>
+              <span className='text-uppercase text-primary'>{t('service.dye.price')}</span>
+            </div>
+            <a className='btn btn-square' href=''>
+              <i className='fa fa-plus text-primary'></i>
+            </a>
           </div>
-          <div className='ps-4'>
-            <h3 className='text-uppercase mb-3'>{t('home.service.mustache')}</h3>
-            <p>
-              {t('home.service.mustache_desc')}
-            </p>
-            <span className='text-uppercase text-primary'>{t('home.service.from')} 5K</span>
-          </div>
-          <a className='btn btn-square' href=''>
-            <i className='fa fa-plus text-primary'></i>
-          </a>
         </div>
-      </div>
+
+        {/* Service 4: Mustache */}
+        <div
+          className='col-lg-4 col-md-6 wow fadeInUp'
+          data-wow-delay='0.3s'
+        >
+          <div className='service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0'>
+            <div
+              className='bg-dark d-flex flex-shrink-0 align-items-center justify-content-center'
+              style={{ width: '60px', height: '60px' }}
+            >
+              <img
+                className='img-fluid'
+                src='/img/mustache.png'
+                alt='Mustache Image'
+              />
+            </div>
+            <div className='ps-4'>
+              <h3 className='text-uppercase mb-3'>{t('service.mustache.title')}</h3>
+              <p>
+                {t('service.mustache.desc')}
+              </p>
+              <span className='text-uppercase text-primary'>{t('service.mustache.price')}</span>
+            </div>
+            <a className='btn btn-square' href=''>
+              <i className='fa fa-plus text-primary'></i>
+            </a>
+          </div>
+        </div>
 
     </div>
   </div>
@@ -213,28 +214,28 @@ export function Index() {
             <div className='col-lg-6 wow fadeIn' data-wow-delay='0.1s'>
               <div className='bg-secondary h-100 d-flex flex-column justify-content-center p-5'>
                 <p className='d-inline-flex bg-dark text-primary py-1 px-4 me-auto'>
-                  {t('home.price.title')}
+                  {t('pricing.subtitle')}
                 </p>
                 <h1 className='text-uppercase mb-4'>
-                  {t('home.price.heading')}
+                  {t('pricing.heading')}
                 </h1>
                 <div>
                   <div className='d-flex justify-content-between border-bottom py-2'>
-                    <h6 className='text-uppercase mb-0'>{t('home.service.haircut')}</h6>
+                    <h6 className='text-uppercase mb-0'>{t('service.haircut.title')}</h6>
                     <span className='text-uppercase text-primary'>15K</span>
                   </div>
                   <div className='d-flex justify-content-between border-bottom py-2'>
-                    <h6 className='text-uppercase mb-0'>{t('home.service.beard_trim')}</h6>
+                    <h6 className='text-uppercase mb-0'>{t('service.beard.title')}</h6>
                     <span className='text-uppercase text-primary'>5K</span>
                   </div>
                   <div className='d-flex justify-content-between border-bottom py-2'>
-                    <h6 className='text-uppercase mb-0'>{t('home.service.hair_dyeing')}</h6>
+                    <h6 className='text-uppercase mb-0'>{t('service.dye.title')}</h6>
                     <span className='text-uppercase text-primary'>
                       90K - 150K
                     </span>
                   </div>
                   <div className='d-flex justify-content-between border-bottom py-2'>
-                    <h6 className='text-uppercase mb-0'>{t('home.service.mustache')}</h6>
+                    <h6 className='text-uppercase mb-0'>{t('service.mustache.title')}</h6>
                     <span className='text-uppercase text-primary'>5K</span>
                   </div>
                 </div>
@@ -263,9 +264,9 @@ export function Index() {
       style={{ maxWidth: '600px' }}
     >
       <p className='d-inline-block bg-secondary text-primary py-1 px-4'>
-        {t('home.team.title')}
+        {t('about.our.barber')}
       </p>
-      <h1 className='text-uppercase'>{t('home.team.heading')}</h1>
+      <h1 className='text-uppercase'>{t('about.meet.barber')}</h1>
     </div>
     
     {/* PERUBAHAN ADA DI SINI: tambahkan 'justify-content-center' */}
@@ -369,7 +370,7 @@ export function Index() {
 </div>
       {/* Team End */}
 
-      {/* Working Hours Start */}
+     {/* Working Hours Start */}
       <div className='container-xxl py-5'>
         <div className='container'>
           <div className='row g-0'>
@@ -385,46 +386,46 @@ export function Index() {
             <div className='col-lg-6 wow fadeIn' data-wow-delay='0.5s'>
               <div className='bg-secondary h-100 d-flex flex-column justify-content-center p-5'>
                 <p className='d-inline-flex bg-dark text-primary py-1 px-4 me-auto'>
-                  {t('home.open.title')}
+                  {t('open.subtitle')}
                 </p>
                 <h1 className='text-uppercase mb-4'>
-                  {t('home.open.heading')}
+                  {t('open.heading')}
                 </h1>
                 <div>
                   <div className='d-flex justify-content-between border-bottom py-2'>
-                    <h6 className='text-uppercase mb-0'>{t('home.open.mon')}</h6>
+                    <h6 className='text-uppercase mb-0'>{t('open.day.monday')}</h6>
                     <span className='text-uppercase'>04 PM - 10 PM</span>
                   </div>
                   <div className='d-flex justify-content-between border-bottom py-2'>
-                    <h6 className='text-uppercase mb-0'>{t('home.open.tue')}</h6>
+                    <h6 className='text-uppercase mb-0'>{t('open.day.tuesday')}</h6>
                     <span className='text-uppercase'>04 PM - 10 PM</span>
                   </div>
                   <div className='d-flex justify-content-between border-bottom py-2'>
-                    <h6 className='text-uppercase mb-0'>{t('home.open.wed')}</h6>
+                    <h6 className='text-uppercase mb-0'>{t('open.day.wednesday')}</h6>
                     <span className='text-uppercase'>04 PM - 10 PM</span>
                   </div>
                   <div className='d-flex justify-content-between border-bottom py-2'>
-                    <h6 className='text-uppercase mb-0'>{t('home.open.thu')}</h6>
+                    <h6 className='text-uppercase mb-0'>{t('open.day.thursday')}</h6>
                     <span className='text-uppercase'>04 PM - 10 PM</span>
                   </div>
                   <div className='d-flex justify-content-between border-bottom py-2'>
-                    <h6 className='text-uppercase mb-0'>{t('home.open.fri')}</h6>
+                    <h6 className='text-uppercase mb-0'>{t('open.day.friday')}</h6>
                     <span className='text-uppercase'>02 PM - 10 PM</span>
                   </div>
                   <div className='d-flex justify-content-between border-bottom py-2'>
-                    <h6 className='text-uppercase mb-0'>{t('home.open.sat')}</h6>
+                    <h6 className='text-uppercase mb-0'>{t('open.day.saturday')}</h6>
                     <span className='text-uppercase'>10 AM - 10 PM</span>
                   </div>
                   <div className='d-flex justify-content-between border-bottom py-2'>
-                    <h6 className='text-uppercase mb-0'>{t('home.open.sun')}</h6>
+                    <h6 className='text-uppercase mb-0'>{t('open.day.sunday')}</h6>
                     <span className='text-uppercase'>10 AM - 10 PM</span>
                   </div>
                   <div className='d-flex justify-content-between py-2'>
                     <h6 className='text-uppercase mb-0'>
-                      {t('home.open.closed_msg')}
+                      {t('open.note.closed')}
                     </h6>
                     <span className='text-uppercase text-primary'>
-                      {t('home.open.closed')}
+                      {t('open.time.closed')}
                     </span>
                   </div>
                 </div>
