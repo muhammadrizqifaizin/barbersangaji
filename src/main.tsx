@@ -5,7 +5,11 @@ import { routeTree } from './routeTree.gen.ts'
 import 'leaflet/dist/leaflet.css'
 import './theme.css'
 
-const router = createRouter({ routeTree })
+// --- PERBAIKAN DI SINI ---
+const router = createRouter({
+  routeTree,
+  basepath: "/sangaji" // <--- Tambahkan baris ini
+})
 
 declare module '@tanstack/react-router' {
   interface Register {

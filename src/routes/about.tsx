@@ -7,7 +7,7 @@ export const Route = createFileRoute('/about')({
 
 export function About() {
   const { t } = useI18n()
-  
+
   return (
     <>
       <div
@@ -48,7 +48,7 @@ export function About() {
               <div className='d-flex flex-column position-relative'>
                 <img
                   className='img-fluid w-75 align-self-end'
-                  src='/img/about.jpg'
+                  src='/img/team-1.jpg'
                   alt='About Image'
                   style={{ minHeight: '300px', objectFit: 'cover', backgroundColor: '#343a40' }}
                 />
@@ -93,6 +93,7 @@ export function About() {
         </div>
       </div>
 
+    {/* Team Section Start */}
       <div className='container-xxl py-5'>
         <div className='container'>
           <div
@@ -105,28 +106,19 @@ export function About() {
             </p>
             <h1 className='text-uppercase'>{t('about.meet.barber')}</h1>
           </div>
-          <div className='row g-4'>
-            <div
-              className='col-lg-3 col-md-6 wow fadeInUp'
-              data-wow-delay='0.1s'
-            >
+
+          {/* PERUBAHAN DI SINI: tambahkan 'justify-content-center' */}
+          <div className='row g-4 justify-content-center'>
+            
+            {/* Barber 1 */}
+            <div className='col-lg-3 col-md-6 wow fadeInUp' data-wow-delay='0.1s'>
               <div className='team-item'>
                 <div className='team-img position-relative overflow-hidden'>
-                  <img
-                    className='img-fluid'
-                    src='/img/team-1.jpg'
-                    alt='Team 1 Image'
-                  />
+                  <img className='img-fluid' src='/img/team-1.jpg' alt='Mr.z' />
                   <div className='team-social'>
-                    <a className='btn btn-square' href=''>
-                      <i className='fab fa-facebook-f'></i>
-                    </a>
-                    <a className='btn btn-square' href=''>
-                      <i className='fab fa-twitter'></i>
-                    </a>
-                    <a className='btn btn-square' href=''>
-                      <i className='fab fa-instagram'></i>
-                    </a>
+                    <a className='btn btn-square' href=''><i className='fab fa-facebook-f'></i></a>
+                    <a className='btn btn-square' href=''><i className='fab fa-twitter'></i></a>
+                    <a className='btn btn-square' href=''><i className='fab fa-instagram'></i></a>
                   </div>
                 </div>
                 <div className='bg-secondary text-center p-4'>
@@ -135,125 +127,47 @@ export function About() {
                 </div>
               </div>
             </div>
-            <div
-              className='col-lg-3 col-md-6 wow fadeInUp'
-              data-wow-delay='0.3s'
-            >
+
+            {/* Barber 2 */}
+            <div className='col-lg-3 col-md-6 wow fadeInUp' data-wow-delay='0.3s'>
               <div className='team-item'>
                 <div className='team-img position-relative overflow-hidden'>
-                  <img
-                    className='img-fluid'
-                    src='/img/team-2.jpg'
-                    alt='Team 2 Image'
-                  />
+                  <img className='img-fluid' src='/img/team-2.jpg' alt='Arif' />
                   <div className='team-social'>
-                    <a className='btn btn-square' href=''>
-                      <i className='fab fa-facebook-f'></i>
-                    </a>
-                    <a className='btn btn-square' href=''>
-                      <i className='fab fa-twitter'></i>
-                    </a>
-                    <a className='btn btn-square' href=''>
-                      <i className='fab fa-instagram'></i>
-                    </a>
+                    <a className='btn btn-square' href=''><i className='fab fa-facebook-f'></i></a>
+                    <a className='btn btn-square' href=''><i className='fab fa-twitter'></i></a>
+                    <a className='btn btn-square' href=''><i className='fab fa-instagram'></i></a>
                   </div>
                 </div>
                 <div className='bg-secondary text-center p-4'>
-                  <h5 className='text-uppercase'>Arif </h5>
+                  <h5 className='text-uppercase'>Arif</h5>
                   <span className='text-primary'>capster</span>
                 </div>
               </div>
             </div>
-            <div
-              className='col-lg-3 col-md-6 wow fadeInUp'
-              data-wow-delay='0.5s'
-            >
+
+            {/* Barber 3 */}
+            <div className='col-lg-3 col-md-6 wow fadeInUp' data-wow-delay='0.5s'>
               <div className='team-item'>
                 <div className='team-img position-relative overflow-hidden'>
-                  <img
-                    className='img-fluid'
-                    src='/img/team-3.jpg'
-                    alt='Team 3 Image'
-                  />
+                  <img className='img-fluid' src='/img/team-3.jpg' alt='Karol' />
                   <div className='team-social'>
-                    <a className='btn btn-square' href=''>
-                      <i className='fab fa-facebook-f'></i>
-                    </a>
-                    <a className='btn btn-square' href=''>
-                      <i className='fab fa-twitter'></i>
-                    </a>
-                    <a className='btn btn-square' href=''>
-                      <i className='fab fa-instagram'></i>
-                    </a>
+                    <a className='btn btn-square' href=''><i className='fab fa-facebook-f'></i></a>
+                    <a className='btn btn-square' href=''><i className='fab fa-twitter'></i></a>
+                    <a className='btn btn-square' href=''><i className='fab fa-instagram'></i></a>
                   </div>
                 </div>
                 <div className='bg-secondary text-center p-4'>
-                  <h5 className='text-uppercase'>karol</h5>
+                  <h5 className='text-uppercase'>Karol</h5>
                   <span className='text-primary'>capster</span>
                 </div>
               </div>
             </div>
-            <div
-              className='col-lg-3 col-md-6 wow fadeInUp'
-              data-wow-delay='0.7s'
-            >
-              <div className='team-item'>
-                <div className='team-img position-relative overflow-hidden'>
-                  <img
-                    className='img-fluid'
-                    src='/img/team-4.jpg'
-                    alt='Team 4 Image'
-                  />
-                  <div className='team-social'>
-                    <a className='btn btn-square' href=''>
-                      <i className='fab fa-facebook-f'></i>
-                    </a>
-                    <a className='btn btn-square' href=''>
-                      <i className='fab fa-twitter'></i>
-                    </a>
-                    <a className='btn btn-square' href=''>
-                      <i className='fab fa-instagram'></i>
-                    </a>
-                  </div>
-                </div>
-                <div className='bg-secondary text-center p-4'>
-                  <h5 className='text-uppercase'>Ramadhan</h5>
-                  <span className='text-primary'>capster</span>
-                </div>
-              </div>
-            </div>
-            <div
-              className='col-lg-3 col-md-6 wow fadeInUp'
-              data-wow-delay='0.7s'
-            >
-              <div className='team-item'>
-                <div className='team-img position-relative overflow-hidden'>
-                  <img
-                    className='img-fluid'
-                    src='/img/team-4.jpg'
-                    alt='Team 4 Image'
-                  />
-                  <div className='team-social'>
-                    <a className='btn btn-square' href=''>
-                      <i className='fab fa-facebook-f'></i>
-                    </a>
-                    <a className='btn btn-square' href=''>
-                      <i className='fab fa-twitter'></i>
-                    </a>
-                    <a className='btn btn-square' href=''>
-                      <i className='fab fa-instagram'></i>
-                    </a>
-                  </div>
-                </div>
-                <div className='bg-secondary text-center p-4'>
-                  <h5 className='text-uppercase'>Ramadhan</h5>
-                  <span className='text-primary'>capster</span>
-                </div>
-              </div>
-            </div>
+
           </div>
         </div>
       </div>
+      {/* Team Section End */}
     </>
   )
 }

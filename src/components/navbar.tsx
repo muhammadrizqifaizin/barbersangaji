@@ -13,7 +13,6 @@ export default function Navbar() {
 
   // --- LOGIC SCROLL & ANIMASI ---
   const [hidden, setHidden] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const stopTimer = useRef<number | null>(null)
   const lastScrollY = useRef(0)
@@ -44,8 +43,6 @@ export default function Navbar() {
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY
-      const isScrolled = y > 50
-      setScrolled(isScrolled)
 
       // 1. Posisi Paling Atas (< 50px)
       if (y < 50) {

@@ -42,6 +42,7 @@ export function Service() {
         </div>
       </div>
 
+      {/* Service Start */}
       <div className='container-xxl py-5'>
         <div className='container'>
           <div
@@ -54,7 +55,11 @@ export function Service() {
             </p>
             <h1 className='text-uppercase'>{t('service.heading')}</h1>
           </div>
-          <div className='row g-4'>
+
+          {/* justify-content-center ditambahkan di sini agar item ganjil tetap di tengah */}
+          <div className='row g-4 justify-content-center'>
+            
+            {/* Service 1: Haircut */}
             <div
               className='col-lg-4 col-md-6 wow fadeInUp'
               data-wow-delay='0.1s'
@@ -72,9 +77,7 @@ export function Service() {
                 </div>
                 <div className='ps-4'>
                   <h3 className='text-uppercase mb-3'>{t('service.haircut.title')}</h3>
-                  <p>
-                    {t('service.haircut.desc')}
-                  </p>
+                  <p>{t('service.haircut.desc')}</p>
                   <span className='text-uppercase text-primary'>{t('service.haircut.price')}</span>
                 </div>
                 <a className='btn btn-square' href='appointment?service=1'>
@@ -82,6 +85,8 @@ export function Service() {
                 </a>
               </div>
             </div>
+
+            {/* Service 2: Beard Trim */}
             <div
               className='col-lg-4 col-md-6 wow fadeInUp'
               data-wow-delay='0.3s'
@@ -99,9 +104,7 @@ export function Service() {
                 </div>
                 <div className='ps-4'>
                   <h3 className='text-uppercase mb-3'>{t('service.beard.title')}</h3>
-                  <p>
-                    {t('service.beard.desc')}
-                  </p>
+                  <p>{t('service.beard.desc')}</p>
                   <span className='text-uppercase text-primary'>{t('service.beard.price')}</span>
                 </div>
                 <a className='btn btn-square' href='appointment?service=2'>
@@ -109,22 +112,22 @@ export function Service() {
                 </a>
               </div>
             </div>
+
+            {/* Service 3: Hair Dyeing */}
             <div
               className='col-lg-4 col-md-6 wow fadeInUp'
-              data-wow-delay='0.1s'
+              data-wow-delay='0.5s'
             >
               <div className='service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0'>
                 <div
                   className='bg-dark d-flex flex-shrink-0 align-items-center justify-content-center'
                   style={{ width: '60px', height: '60px' }}
                 >
-                  <img className='img-fluid' src='img/hair-dyeing.png' alt='' />
+                  <img className='img-fluid' src='/img/hair-dyeing.png' alt='Hair Dyeing Image' />
                 </div>
                 <div className='ps-4'>
                   <h3 className='text-uppercase mb-3'>{t('service.dye.title')}</h3>
-                  <p>
-                    {t('service.dye.desc')}
-                  </p>
+                  <p>{t('service.dye.desc')}</p>
                   <span className='text-uppercase text-primary'>{t('service.dye.price')}</span>
                 </div>
                 <a className='btn btn-square' href='appointment?service=3'>
@@ -132,9 +135,11 @@ export function Service() {
                 </a>
               </div>
             </div>
+
+            {/* Service 4: Mustache - Otomatis Center */}
             <div
               className='col-lg-4 col-md-6 wow fadeInUp'
-              data-wow-delay='0.3s'
+              data-wow-delay='0.1s'
             >
               <div className='service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0'>
                 <div
@@ -149,9 +154,7 @@ export function Service() {
                 </div>
                 <div className='ps-4'>
                   <h3 className='text-uppercase mb-3'>{t('service.mustache.title')}</h3>
-                  <p>
-                    {t('service.mustache.desc')}
-                  </p>
+                  <p>{t('service.mustache.desc')}</p>
                   <span className='text-uppercase text-primary'>{t('service.mustache.price')}</span>
                 </div>
                 <a className='btn btn-square' href='appointment?service=4'>
@@ -159,9 +162,11 @@ export function Service() {
                 </a>
               </div>
             </div>
+
           </div>
         </div>
       </div>
+      {/* Service End */}
 
       <div className='container-xxl py-5'>
         <div className='container'>

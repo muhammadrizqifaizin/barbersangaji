@@ -1,6 +1,6 @@
 {
   "name": "barber-sangaji",
-  "homepage": "https://muhammadrizqifaizin.github.io/barber-sangaji",
+  "homepage": "https://muhammadrizqifaizin.github.io/sangaji",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -14,7 +14,9 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^7.1.0",
     "@tanstack/react-router": "^1.63.2",
+    "bootstrap-icons": "^1.13.1",
     "express": "^4.21.1",
     "jquery": "^3.7.1",
     "leaflet": "^1.9.4",

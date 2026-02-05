@@ -166,7 +166,7 @@ const translations: Record<Lang, Record<string, string>> = {
     'testimonial.subtitle': 'Testimonial',
     'testimonial.heading': 'What Our Clients Say!',
     'testimonial.1.text': 'A neat and shapely cut, like a professional haircut at an affordable price!',
-    'testimonial.2.text': 'Good service, good man, and neat haircut. Suitable for haircut subscription',
+    'testimonial.2.text': 'Good service, good man, and neat haircut. Suitable for haircut subscriptionfdsfsdfsd dsfdsf sdfsdfsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
     'testimonial.3.text': 'Recommended. Top service',
     'testimonial.role.student': 'Student',
     'testimonial.role.teacher': 'Teacher',

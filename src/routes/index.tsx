@@ -22,7 +22,7 @@ export function Index() {
               <div className='d-flex flex-column position-relative'>
                 <img
                   className='img-fluid w-75 align-self-end'
-                  src='/img/about.jpg'
+                  src='/img/team-1.jpg'
                   alt='About Image'
                   style={{ minHeight: '300px', objectFit: 'cover', backgroundColor: '#343a40' }}
                 />
@@ -70,141 +70,141 @@ export function Index() {
       {/* About End */}
 
       {/* Service Start */}
-     <div className='container-xxl py-5'>
-  <div className='container'>
-    <div
-        className='text-center mx-auto mb-5 wow fadeInUp'
-        data-wow-delay='0.1s'
-        style={{ maxWidth: '600px' }}
-      >
-        <p className='d-inline-block bg-secondary text-primary py-1 px-4'>
-          {t('service.subtitle')}
-        </p>
-        <h1 className='text-uppercase'>{t('service.heading')}</h1>
+      <div className='container-xxl py-5'>
+        <div className='container'>
+          <div
+            className='text-center mx-auto mb-5 wow fadeInUp'
+            data-wow-delay='0.1s'
+            style={{ maxWidth: '600px' }}
+          >
+            <p className='d-inline-block bg-secondary text-primary py-1 px-4'>
+              {t('service.subtitle')}
+            </p>
+            <h1 className='text-uppercase'>{t('service.heading')}</h1>
+          </div>
+
+          {/* PERUBAHAN DI SINI: tambahkan 'justify-content-center' */}
+          <div className='row g-4 justify-content-center'>
+
+            {/* Service 1: Haircut */}
+            <div
+              className='col-lg-4 col-md-6 wow fadeInUp'
+              data-wow-delay='0.1s'
+            >
+              <div className='service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0'>
+                <div
+                  className='bg-dark d-flex flex-shrink-0 align-items-center justify-content-center'
+                  style={{ width: '60px', height: '60px' }}
+                >
+                  <img
+                    className='img-fluid'
+                    src='/img/haircut.png'
+                    alt='Haircut Image'
+                  />
+                </div>
+                <div className='ps-4'>
+                  <h3 className='text-uppercase mb-3'>{t('service.haircut.title')}</h3>
+                  <p>
+                    {t('service.haircut.desc')}
+                  </p>
+                  <span className='text-uppercase text-primary'>{t('service.haircut.price')}</span>
+                </div>
+                <a className='btn btn-square' href='appointment?service=1'>
+                  <i className='fa fa-plus text-primary'></i>
+                </a>
+              </div>
+            </div>
+
+            {/* Service 2: Beard Trim */}
+            <div
+              className='col-lg-4 col-md-6 wow fadeInUp'
+              data-wow-delay='0.3s'
+            >
+              <div className='service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0'>
+                <div
+                  className='bg-dark d-flex flex-shrink-0 align-items-center justify-content-center'
+                  style={{ width: '60px', height: '60px' }}
+                >
+                  <img
+                    className='img-fluid'
+                    src='/img/beard-trim.png'
+                    alt='Beard Trim Image'
+                  />
+                </div>
+                <div className='ps-4'>
+                  <h3 className='text-uppercase mb-3'>{t('service.beard.title')}</h3>
+                  <p>
+                    {t('service.beard.desc')}
+                  </p>
+                  <span className='text-uppercase text-primary'>{t('service.beard.price')}</span>
+                </div>
+                <a className='btn btn-square' href='appointment?service=2'>
+                  <i className='fa fa-plus text-primary'></i>
+                </a>
+              </div>
+            </div>
+
+            {/* Service 3: Hair Dyeing */}
+            <div
+              className='col-lg-4 col-md-6 wow fadeInUp'
+              data-wow-delay='0.1s'
+            >
+              <div className='service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0'>
+                <div
+                  className='bg-dark d-flex flex-shrink-0 align-items-center justify-content-center'
+                  style={{ width: '60px', height: '60px' }}
+                >
+                  <img
+                    className='img-fluid'
+                    src='/img/hair-dyeing.png'
+                    alt='Hair Dyeing Image'
+                  />
+                </div>
+                <div className='ps-4'>
+                  <h3 className='text-uppercase mb-3'>{t('service.dye.title')}</h3>
+                  <p>
+                    {t('service.dye.desc')}
+                  </p>
+                  <span className='text-uppercase text-primary'>{t('service.dye.price')}</span>
+                </div>
+                <a className='btn btn-square' href='appointment?service=3'>
+                  <i className='fa fa-plus text-primary'></i>
+                </a>
+              </div>
+            </div>
+
+            {/* Service 4: Mustache */}
+            <div
+              className='col-lg-4 col-md-6 wow fadeInUp'
+              data-wow-delay='0.3s'
+            >
+              <div className='service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0'>
+                <div
+                  className='bg-dark d-flex flex-shrink-0 align-items-center justify-content-center'
+                  style={{ width: '60px', height: '60px' }}
+                >
+                  <img
+                    className='img-fluid'
+                    src='/img/mustache.png'
+                    alt='Mustache Image'
+                  />
+                </div>
+                <div className='ps-4'>
+                  <h3 className='text-uppercase mb-3'>{t('service.mustache.title')}</h3>
+                  <p>
+                    {t('service.mustache.desc')}
+                  </p>
+                  <span className='text-uppercase text-primary'>{t('service.mustache.price')}</span>
+                </div>
+                <a className='btn btn-square' href='appointment?service=4'>
+                  <i className='fa fa-plus text-primary'></i>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
       </div>
-
-      {/* PERUBAHAN DI SINI: tambahkan 'justify-content-center' */}
-      <div className='row g-4 justify-content-center'>
-        
-        {/* Service 1: Haircut */}
-        <div
-          className='col-lg-4 col-md-6 wow fadeInUp'
-          data-wow-delay='0.1s'
-        >
-          <div className='service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0'>
-            <div
-              className='bg-dark d-flex flex-shrink-0 align-items-center justify-content-center'
-              style={{ width: '60px', height: '60px' }}
-            >
-              <img
-                className='img-fluid'
-                src='/img/haircut.png'
-                alt='Haircut Image'
-              />
-            </div>
-            <div className='ps-4'>
-              <h3 className='text-uppercase mb-3'>{t('service.haircut.title')}</h3>
-              <p>
-                {t('service.haircut.desc')}
-              </p>
-              <span className='text-uppercase text-primary'>{t('service.haircut.price')}</span>
-            </div>
-            <a className='btn btn-square' href=''>
-              <i className='fa fa-plus text-primary'></i>
-            </a>
-          </div>
-        </div>
-
-        {/* Service 2: Beard Trim */}
-        <div
-          className='col-lg-4 col-md-6 wow fadeInUp'
-          data-wow-delay='0.3s'
-        >
-          <div className='service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0'>
-            <div
-              className='bg-dark d-flex flex-shrink-0 align-items-center justify-content-center'
-              style={{ width: '60px', height: '60px' }}
-            >
-              <img
-                className='img-fluid'
-                src='/img/beard-trim.png'
-                alt='Beard Trim Image'
-              />
-            </div>
-            <div className='ps-4'>
-              <h3 className='text-uppercase mb-3'>{t('service.beard.title')}</h3>
-              <p>
-                {t('service.beard.desc')}
-              </p>
-              <span className='text-uppercase text-primary'>{t('service.beard.price')}</span>
-            </div>
-            <a className='btn btn-square' href=''>
-              <i className='fa fa-plus text-primary'></i>
-            </a>
-          </div>
-        </div>
-
-        {/* Service 3: Hair Dyeing */}
-        <div
-          className='col-lg-4 col-md-6 wow fadeInUp'
-          data-wow-delay='0.1s'
-        >
-          <div className='service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0'>
-            <div
-              className='bg-dark d-flex flex-shrink-0 align-items-center justify-content-center'
-              style={{ width: '60px', height: '60px' }}
-            >
-              <img
-                className='img-fluid'
-                src='/img/hair-dyeing.png'
-                alt='Hair Dyeing Image'
-              />
-            </div>
-            <div className='ps-4'>
-              <h3 className='text-uppercase mb-3'>{t('service.dye.title')}</h3>
-              <p>
-                {t('service.dye.desc')}
-              </p>
-              <span className='text-uppercase text-primary'>{t('service.dye.price')}</span>
-            </div>
-            <a className='btn btn-square' href=''>
-              <i className='fa fa-plus text-primary'></i>
-            </a>
-          </div>
-        </div>
-
-        {/* Service 4: Mustache */}
-        <div
-          className='col-lg-4 col-md-6 wow fadeInUp'
-          data-wow-delay='0.3s'
-        >
-          <div className='service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0'>
-            <div
-              className='bg-dark d-flex flex-shrink-0 align-items-center justify-content-center'
-              style={{ width: '60px', height: '60px' }}
-            >
-              <img
-                className='img-fluid'
-                src='/img/mustache.png'
-                alt='Mustache Image'
-              />
-            </div>
-            <div className='ps-4'>
-              <h3 className='text-uppercase mb-3'>{t('service.mustache.title')}</h3>
-              <p>
-                {t('service.mustache.desc')}
-              </p>
-              <span className='text-uppercase text-primary'>{t('service.mustache.price')}</span>
-            </div>
-            <a className='btn btn-square' href=''>
-              <i className='fa fa-plus text-primary'></i>
-            </a>
-          </div>
-        </div>
-
-    </div>
-  </div>
-</div>
       {/* Service End */}
 
       {/* Price Start */}
@@ -256,121 +256,121 @@ export function Index() {
       {/* Price End */}
 
       {/* Team Start */}
-     <div className='container-xxl py-5'>
-  <div className='container'>
-    <div
-      className='text-center mx-auto mb-5 wow fadeInUp'
-      data-wow-delay='0.1s'
-      style={{ maxWidth: '600px' }}
-    >
-      <p className='d-inline-block bg-secondary text-primary py-1 px-4'>
-        {t('about.our.barber')}
-      </p>
-      <h1 className='text-uppercase'>{t('about.meet.barber')}</h1>
-    </div>
-    
-    {/* PERUBAHAN ADA DI SINI: tambahkan 'justify-content-center' */}
-    <div className='row g-4 justify-content-center'> 
-      
-      {/* Item 1 */}
-      <div
-        className='col-lg-3 col-md-6 wow fadeInUp'
-        data-wow-delay='0.1s'
-      >
-        <div className='team-item'>
-          <div className='team-img position-relative overflow-hidden'>
-            <img
-              className='img-fluid'
-              src='/img/team-1.jpg'
-              alt='Team 1 Image'
-            />
-            <div className='team-social'>
-              <a className='btn btn-square' href=''>
-                <i className='fab fa-facebook-f'></i>
-              </a>
-              <a className='btn btn-square' href=''>
-                <i className='fab fa-twitter'></i>
-              </a>
-              <a className='btn btn-square' href=''>
-                <i className='fab fa-instagram'></i>
-              </a>
-            </div>
+      <div className='container-xxl py-5'>
+        <div className='container'>
+          <div
+            className='text-center mx-auto mb-5 wow fadeInUp'
+            data-wow-delay='0.1s'
+            style={{ maxWidth: '600px' }}
+          >
+            <p className='d-inline-block bg-secondary text-primary py-1 px-4'>
+              {t('about.our.barber')}
+            </p>
+            <h1 className='text-uppercase'>{t('about.meet.barber')}</h1>
           </div>
-          <div className='bg-secondary text-center p-4'>
-            <h5 className='text-uppercase'>CRAWL</h5>
-            <span className='text-primary'>capster</span>
+
+          {/* PERUBAHAN ADA DI SINI: tambahkan 'justify-content-center' */}
+          <div className='row g-4 justify-content-center'>
+
+            {/* Item 1 */}
+            <div
+              className='col-lg-3 col-md-6 wow fadeInUp'
+              data-wow-delay='0.1s'
+            >
+              <div className='team-item'>
+                <div className='team-img position-relative overflow-hidden'>
+                  <img
+                    className='img-fluid'
+                    src='/img/team-1.jpg'
+                    alt='Team 1 Image'
+                  />
+                  <div className='team-social'>
+                    <a className='btn btn-square' href=''>
+                      <i className='fab fa-facebook-f'></i>
+                    </a>
+                    <a className='btn btn-square' href=''>
+                      <i className='fab fa-twitter'></i>
+                    </a>
+                    <a className='btn btn-square' href=''>
+                      <i className='fab fa-instagram'></i>
+                    </a>
+                  </div>
+                </div>
+                <div className='bg-secondary text-center p-4'>
+                  <h5 className='text-uppercase'>CRAWL</h5>
+                  <span className='text-primary'>capster</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Item 2 */}
+            <div
+              className='col-lg-3 col-md-6 wow fadeInUp'
+              data-wow-delay='0.3s'
+            >
+              <div className='team-item'>
+                <div className='team-img position-relative overflow-hidden'>
+                  <img
+                    className='img-fluid'
+                    src='/img/team-2.jpg'
+                    alt='Team 2 Image'
+                  />
+                  <div className='team-social'>
+                    <a className='btn btn-square' href=''>
+                      <i className='fab fa-facebook-f'></i>
+                    </a>
+                    <a className='btn btn-square' href=''>
+                      <i className='fab fa-twitter'></i>
+                    </a>
+                    <a className='btn btn-square' href=''>
+                      <i className='fab fa-instagram'></i>
+                    </a>
+                  </div>
+                </div>
+                <div className='bg-secondary text-center p-4'>
+                  <h5 className='text-uppercase'>BADRUT</h5>
+                  <span className='text-primary'>capster</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Item 3 */}
+            <div
+              className='col-lg-3 col-md-6 wow fadeInUp'
+              data-wow-delay='0.5s'
+            >
+              <div className='team-item'>
+                <div className='team-img position-relative overflow-hidden'>
+                  <img
+                    className='img-fluid'
+                    src='/img/team-3.jpg'
+                    alt='Team 3 Image'
+                  />
+                  <div className='team-social'>
+                    <a className='btn btn-square' href=''>
+                      <i className='fab fa-facebook-f'></i>
+                    </a>
+                    <a className='btn btn-square' href=''>
+                      <i className='fab fa-twitter'></i>
+                    </a>
+                    <a className='btn btn-square' href='https://www.instagram.com/barber.sangaji?igsh=MXhoYW1mNTkwMnJmdA=='>
+                      <i className='fab fa-instagram'></i>
+                    </a>
+                  </div>
+                </div>
+                <div className='bg-secondary text-center p-4'>
+                  <h5 className='text-uppercase'>AGUS</h5>
+                  <span className='text-primary'>capster</span>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
-
-      {/* Item 2 */}
-      <div
-        className='col-lg-3 col-md-6 wow fadeInUp'
-        data-wow-delay='0.3s'
-      >
-        <div className='team-item'>
-          <div className='team-img position-relative overflow-hidden'>
-            <img
-              className='img-fluid'
-              src='/img/team-2.jpg'
-              alt='Team 2 Image'
-            />
-            <div className='team-social'>
-              <a className='btn btn-square' href=''>
-                <i className='fab fa-facebook-f'></i>
-              </a>
-              <a className='btn btn-square' href=''>
-                <i className='fab fa-twitter'></i>
-              </a>
-              <a className='btn btn-square' href=''>
-                <i className='fab fa-instagram'></i>
-              </a>
-            </div>
-          </div>
-          <div className='bg-secondary text-center p-4'>
-            <h5 className='text-uppercase'>BADRUT</h5>
-            <span className='text-primary'>capster</span>
-          </div>
-        </div>
-      </div>
-
-      {/* Item 3 */}
-      <div
-        className='col-lg-3 col-md-6 wow fadeInUp'
-        data-wow-delay='0.5s'
-      >
-        <div className='team-item'>
-          <div className='team-img position-relative overflow-hidden'>
-            <img
-              className='img-fluid'
-              src='/img/team-3.jpg'
-              alt='Team 3 Image'
-            />
-            <div className='team-social'>
-              <a className='btn btn-square' href=''>
-                <i className='fab fa-facebook-f'></i>
-              </a>
-              <a className='btn btn-square' href=''>
-                <i className='fab fa-twitter'></i>
-              </a>
-              <a className='btn btn-square' href='https://www.instagram.com/barber.sangaji?igsh=MXhoYW1mNTkwMnJmdA=='>
-                <i className='fab fa-instagram'></i>
-              </a>
-            </div>
-          </div>
-          <div className='bg-secondary text-center p-4'>
-            <h5 className='text-uppercase'>AGUS</h5>
-            <span className='text-primary'>capster</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>
       {/* Team End */}
 
-     {/* Working Hours Start */}
+      {/* Working Hours Start */}
       <div className='container-xxl py-5'>
         <div className='container'>
           <div className='row g-0'>
