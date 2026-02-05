@@ -4,7 +4,11 @@ import { TanStackRouterVite } from '@tanstack/router-plugin/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), TanStackRouterVite()],
-  // Use /sangaji/ base only in production, leave it as / for local dev
-  base: process.env.NODE_ENV === 'production' ? '/sangaji/' : '/',
+  plugins: [
+    react(), 
+    TanStackRouterVite()
+  ],
+  // Mengatur base ke '/' memastikan Vercel mencari aset (JS/CSS) 
+  // langsung di root directory, bukan di sub-folder /sangaji/
+  base: '/',
 })
