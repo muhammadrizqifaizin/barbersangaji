@@ -11,7 +11,9 @@ body {
   overflow-x: hidden;
 }
 
-html, body, #root {
+html,
+body,
+#root {
   max-width: 100%;
   overflow-x: hidden;
 }
@@ -113,7 +115,7 @@ svg {
 }
 
 .navbar.sticky-top {
-  top: -100px;
+  /* top dikontrol oleh React inline style untuk animasi hide/show */
   transition: 0.5s;
 }
 

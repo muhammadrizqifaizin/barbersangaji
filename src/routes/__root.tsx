@@ -18,7 +18,7 @@ export const Route = createRootRoute({
         <ScrollRestoration getKey={(location) => location.pathname} />
         <Navbar />
         <Spinner />
-        <main style={{ paddingTop: '8-px' }}>
+        <main style={{ paddingTop: '120px' }}>
           <Outlet />
         </main>
         <Footer />
