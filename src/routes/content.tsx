@@ -1,16 +1,123 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { useEffect, useState } from 'react'
+import { supabase, type Content } from '../lib/supabase'
 
 export const Route = createFileRoute('/content')({
-  component: Content,
+  component: ContentPage,
 })
 
-export function Content() {
+// Content Card Component
+function ContentCard({
+  item,
+  type,
+  onPlayVideo,
+  defaultThumbnail
+}: {
+  item: Content
+  type: 'video' | 'photo'
+  onPlayVideo?: (img: HTMLImageElement) => void
+  defaultThumbnail: string
+}) {
+  return (
+    <div className='team-item h-100 d-flex flex-column'>
+      {type === 'video' ? (
+        <div className='video-container' style={{ flex: '0 0 auto' }}>
+          <img
+            className='img-fluid w-100'
+            src={item.thumbnail_url || defaultThumbnail}
+            alt={item.title}
+            onClick={(event) => onPlayVideo?.(event.currentTarget)}
+            style={{ cursor: 'pointer', objectFit: 'cover', height: '200px' }}
+          />
+          <video className='img-fluid w-100' controls style={{ display: 'none', height: '200px', objectFit: 'cover' }}>
+            <source src={item.file_url} type='video/mp4' />
+            Browser Anda tidak mendukung video tag.
+          </video>
+          <div className='team-social'>
+            <a
+              className='btn btn-square'
+              href='https://www.instagram.com/barber.sangaji/?igsh=MWljNWczdGtvNXp2eA%3D%3D'
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className='fab fa-instagram'></i>
+            </a>
+          </div>
+        </div>
+      ) : (
+        <div className='team-img position-relative overflow-hidden' style={{ flex: '0 0 auto' }}>
+          <img
+            className='img-fluid w-100'
+            src={item.file_url}
+            alt={item.title}
+            style={{ objectFit: 'cover', height: '200px' }}
+          />
+          <div className='team-social'>
+            <a
+              className='btn btn-square'
+              href='https://www.instagram.com/barber.sangaji/?igsh=MWljNWczdGtvNXp2eA%3D%3D'
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className='fab fa-instagram'></i>
+            </a>
+          </div>
+        </div>
+      )}
+
+      <div className='bg-secondary text-center p-3' style={{ flex: '1 1 auto' }}>
+        <h6 className='text-uppercase mb-2 text-white'>
+          {item.title}
+        </h6>
+        <p className='text-primary small mb-0' style={{
+          wordWrap: 'break-word',
+          overflowWrap: 'break-word',
+          lineHeight: '1.5'
+        }}>
+          {item.description}
+        </p>
+      </div>
+    </div>
+  )
+}
+
+export function ContentPage() {
+  const [videos, setVideos] = useState<Content[]>([])
+  const [photos, setPhotos] = useState<Content[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    async function fetchContent() {
+      try {
+        const { data, error } = await supabase
+          .from('content')
+          .select('*')
+          .order('created_at', { ascending: false })
+
+        if (error) throw error
+
+        if (data) {
+          const contentData = data as Content[]
+          setVideos(contentData.filter(c => c.category === 'video'))
+          setPhotos(contentData.filter(c => c.category === 'foto'))
+        }
+      } catch (error) {
+        console.error('Failed to fetch content:', error)
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchContent()
+  }, [])
+
   function playVideo(imgElement: HTMLImageElement) {
-    const videoElement = imgElement.nextElementSibling as HTMLVideoElement // Ambil elemen video
-    imgElement.style.display = 'none' // Sembunyikan gambar
-    videoElement.style.display = 'block' // Tampilkan video
-    videoElement.play() // Putar video
+    const videoElement = imgElement.nextElementSibling as HTMLVideoElement
+    imgElement.style.display = 'none'
+    videoElement.style.display = 'block'
+    videoElement.play()
   }
+
+  const defaultThumbnail = '/img/lofo sangaji.png'
 
   return (
     <>
@@ -25,7 +132,7 @@ export function Content() {
           <nav aria-label='breadcrumb animated slideInDown'>
             <ol className='breadcrumb justify-content-center text-uppercase mb-0'>
               <li className='breadcrumb-item'>
-                <a className='text-white' href='#'>
+                <a className='text-white' href='/'>
                   Home
                 </a>
               </li>
@@ -45,6 +152,7 @@ export function Content() {
         </div>
       </div>
 
+      {/* Video Section */}
       <div className='container-xxl py-5'>
         <div className='container'>
           <div
@@ -56,316 +164,38 @@ export function Content() {
               video of the result of barber sangaji
             </h1>
           </div>
-          <div className='row g-4'>
-            <div
-              className='col-lg-3 col-md-6 wow fadeInUp'
-              data-wow-delay='0.1s'
-            >
-              <div className='team-item'>
-                <div className='video-container'>
-                  <img
-                    className='img-fluid'
-                    src='/img/lofo sangaji.png'
-                    alt='Video Thumbnail'
-                    onClick={(event) => playVideo(event.currentTarget)}
-                  />
-                  <video className='img-fluid' controls>
-                    <source src='/video/video1.mp4' type='video/mp4' />
-                    Browser Anda tidak mendukung video tag.
-                  </video>
-                  <div className='team-social'>
-                    <a className='btn btn-square' href=''>
-                      <i className='fab fa-facebook-f'></i>
-                    </a>
-                    <a className='btn btn-square' href=''>
-                      <i className='fab fa-twitter'></i>
-                    </a>
-                    <a className='btn btn-square' href=''>
-                      <i className='fab fa-instagram'></i>
-                    </a>
-                    <a
-                      className='btn btn-square'
-                      href='link_ke_video_lengkap.mp4'
-                    >
-                      <i className='fas fa-arrow-right'></i>
-                    </a>
-                  </div>
-                </div>
-                <div className='bg-secondary text-center p-4'>
-                  <h5 className='text-uppercase'>back to the process</h5>
-                  <span className='text-primary'>Designation</span>
+          <div className='row g-4 justify-content-center'>
+            {loading ? (
+              <div className='col-12 text-center'>
+                <div className='spinner-border text-primary' role='status'>
+                  <span className='visually-hidden'>Loading...</span>
                 </div>
               </div>
-            </div>
-
-            <div
-              className='col-lg-3 col-md-6 wow fadeInUp'
-              data-wow-delay='0.3s'
-            >
-              <div className='team-item'>
-                <div className='video-container'>
-                  <img
-                    className='img-fluid'
-                    src='/img/lofo sangaji.png'
-                    alt='Video Thumbnail'
-                    onClick={(event) => playVideo(event.currentTarget)}
+            ) : videos.length > 0 ? (
+              videos.map((video, index) => (
+                <div
+                  key={video.id}
+                  className='col-lg-3 col-md-4 col-sm-6 wow fadeInUp'
+                  data-wow-delay={`${0.1 + (index % 4) * 0.2}s`}
+                >
+                  <ContentCard
+                    item={video}
+                    type='video'
+                    onPlayVideo={playVideo}
+                    defaultThumbnail={defaultThumbnail}
                   />
-                  <video className='img-fluid' controls>
-                    <source src='/video/video2.mp4' type='video/mp4' />
-                    Browser Anda tidak mendukung video tag.
-                  </video>
-                  <div className='team-social'>
-                    <a className='btn btn-square' href=''>
-                      <i className='fab fa-facebook-f'></i>
-                    </a>
-                    <a className='btn btn-square' href=''>
-                      <i className='fab fa-twitter'></i>
-                    </a>
-                    <a
-                      className='btn btn-square'
-                      href='https://www.instagram.com/barber.sangaji/?igsh=MWljNWczdGtvNXp2eA%3D%3D'
-                    >
-                      <i className='fab fa-instagram'></i>
-                    </a>
-                  </div>
                 </div>
-                <div className='bg-secondary text-center p-4'>
-                  <h5 className='text-uppercase'>back to the process</h5>
-                  <span className='text-primary'>Designation</span>
-                </div>
+              ))
+            ) : (
+              <div className='col-12 text-center'>
+                <p className='text-muted'>Belum ada video yang ditambahkan.</p>
               </div>
-            </div>
-
-            <div
-              className='col-lg-3 col-md-6 wow fadeInUp'
-              data-wow-delay='0.5s'
-            >
-              <div className='team-item'>
-                <div className='video-container'>
-                  <img
-                    className='img-fluid'
-                    src='/img/lofo sangaji.png'
-                    alt='Video Thumbnail'
-                    onClick={(event) => playVideo(event.currentTarget)}
-                  />
-                  <video className='img-fluid' controls>
-                    <source src='/video/video 3.mp4' type='video/mp4' />
-                    Browser Anda tidak mendukung video tag.
-                  </video>
-                  <div className='team-social'>
-                    <a className='btn btn-square' href=''>
-                      <i className='fab fa-facebook-f'></i>
-                    </a>
-                    <a className='btn btn-square' href=''>
-                      <i className='fab fa-twitter'></i>
-                    </a>
-                    <a
-                      className='btn btn-square'
-                      href='https://www.instagram.com/barber.sangaji/?igsh=MWljNWczdGtvNXp2eA%3D%3D'
-                    >
-                      <i className='fab fa-instagram'></i>
-                    </a>
-                  </div>
-                </div>
-                <div className='bg-secondary text-center p-4'>
-                  <h5 className='text-uppercase'>back to the process</h5>
-                  <span className='text-primary'>Designation</span>
-                </div>
-              </div>
-            </div>
-
-            <div
-              className='col-lg-3 col-md-6 wow fadeInUp'
-              data-wow-delay='0.7s'
-            >
-              <div className='team-item'>
-                <div className='video-container'>
-                  <img
-                    className='img-fluid'
-                    src='/img/lofo sangaji.png'
-                    alt='Video Thumbnail'
-                    onClick={(event) => playVideo(event.currentTarget)}
-                  />
-                  <video className='img-fluid' controls>
-                    <source src='/video/video4.mp4' type='video/mp4' />
-                    Browser Anda tidak mendukung video tag.
-                  </video>
-                  <div className='team-social'>
-                    <a className='btn btn-square' href=''>
-                      <i className='fab fa-facebook-f'></i>
-                    </a>
-                    <a className='btn btn-square' href=''>
-                      <i className='fab fa-twitter'></i>
-                    </a>
-                    <a
-                      className='btn btn-square'
-                      href='https://www.instagram.com/barber.sangaji/?igsh=MWljNWczdGtvNXp2eA%3D%3D'
-                    >
-                      <i className='fab fa-instagram'></i>
-                    </a>
-                  </div>
-                </div>
-                <div className='bg-secondary text-center p-4'>
-                  <h5 className='text-uppercase'>back to the process</h5>
-                  <span className='text-primary'>Designation</span>
-                </div>
-              </div>
-            </div>
-
-            <div
-              className='col-lg-3 col-md-6 wow fadeInUp'
-              data-wow-delay='0.7s'
-            >
-              <div className='team-item'>
-                <div className='video-container'>
-                  <img
-                    className='img-fluid'
-                    src='/img/lofo sangaji.png'
-                    alt='Video Thumbnail'
-                    onClick={(event) => playVideo(event.currentTarget)}
-                  />
-                  <video className='img-fluid' controls>
-                    <source src='/video/video5.mp4' type='video/mp4' />
-                    Browser Anda tidak mendukung video tag.
-                  </video>
-                  <div className='team-social'>
-                    <a className='btn btn-square' href=''>
-                      <i className='fab fa-facebook-f'></i>
-                    </a>
-                    <a className='btn btn-square' href=''>
-                      <i className='fab fa-twitter'></i>
-                    </a>
-                    <a
-                      className='btn btn-square'
-                      href='https://www.instagram.com/barber.sangaji/?igsh=MWljNWczdGtvNXp2eA%3D%3D'
-                    >
-                      <i className='fab fa-instagram'></i>
-                    </a>
-                  </div>
-                </div>
-                <div className='bg-secondary text-center p-4'>
-                  <h5 className='text-uppercase'>back to the process</h5>
-                  <span className='text-primary'>Designation</span>
-                </div>
-              </div>
-            </div>
-
-            <div
-              className='col-lg-3 col-md-6 wow fadeInUp'
-              data-wow-delay='0.7s'
-            >
-              <div className='team-item'>
-                <div className='video-container'>
-                  <img
-                    className='img-fluid'
-                    src='/img/lofo sangaji.png'
-                    alt='Video Thumbnail'
-                    onClick={(event) => playVideo(event.currentTarget)}
-                  />
-                  <video className='img-fluid' controls>
-                    <source src='/video/video6.mp4' type='video/mp4' />
-                    Browser Anda tidak mendukung video tag.
-                  </video>
-                  <div className='team-social'>
-                    <a className='btn btn-square' href=''>
-                      <i className='fab fa-facebook-f'></i>
-                    </a>
-                    <a className='btn btn-square' href=''>
-                      <i className='fab fa-twitter'></i>
-                    </a>
-                    <a
-                      className='btn btn-square'
-                      href='https://www.instagram.com/barber.sangaji/?igsh=MWljNWczdGtvNXp2eA%3D%3D'
-                    >
-                      <i className='fab fa-instagram'></i>
-                    </a>
-                  </div>
-                </div>
-                <div className='bg-secondary text-center p-4'>
-                  <h5 className='text-uppercase'>back to the process</h5>
-                  <span className='text-primary'>Designation</span>
-                </div>
-              </div>
-            </div>
-
-            <div
-              className='col-lg-3 col-md-6 wow fadeInUp'
-              data-wow-delay='0.7s'
-            >
-              <div className='team-item'>
-                <div className='video-container'>
-                  <img
-                    className='img-fluid'
-                    src='/img/lofo sangaji.png'
-                    alt='Video Thumbnail'
-                    onClick={(event) => playVideo(event.currentTarget)}
-                  />
-                  <video className='img-fluid' controls>
-                    <source src='/video/video7.mp4' type='video/mp4' />
-                    Browser Anda tidak mendukung video tag.
-                  </video>
-                  <div className='team-social'>
-                    <a className='btn btn-square' href=''>
-                      <i className='fab fa-facebook-f'></i>
-                    </a>
-                    <a className='btn btn-square' href=''>
-                      <i className='fab fa-twitter'></i>
-                    </a>
-                    <a
-                      className='btn btn-square'
-                      href='https://www.instagram.com/barber.sangaji/?igsh=MWljNWczdGtvNXp2eA%3D%3D'
-                    >
-                      <i className='fab fa-instagram'></i>
-                    </a>
-                  </div>
-                </div>
-                <div className='bg-secondary text-center p-4'>
-                  <h5 className='text-uppercase'>back to the process</h5>
-                  <span className='text-primary'>Designation</span>
-                </div>
-              </div>
-            </div>
-
-            <div
-              className='col-lg-3 col-md-6 wow fadeInUp'
-              data-wow-delay='0.7s'
-            >
-              <div className='team-item'>
-                <div className='video-container'>
-                  <img
-                    className='img-fluid'
-                    src='/img/lofo sangaji.png'
-                    alt='Video Thumbnail'
-                    onClick={(event) => playVideo(event.currentTarget)}
-                  />
-                  <video className='img-fluid' controls>
-                    <source src='/video/8.mp4' type='video/mp4' />
-                    Browser Anda tidak mendukung video tag.
-                  </video>
-                  <div className='team-social'>
-                    <a className='btn btn-square' href=''>
-                      <i className='fab fa-facebook-f'></i>
-                    </a>
-                    <a className='btn btn-square' href=''>
-                      <i className='fab fa-twitter'></i>
-                    </a>
-                    <a
-                      className='btn btn-square'
-                      href='https://www.instagram.com/barber.sangaji/?igsh=MWljNWczdGtvNXp2eA%3D%3D'
-                    >
-                      <i className='fab fa-instagram'></i>
-                    </a>
-                  </div>
-                </div>
-                <div className='bg-secondary text-center p-4'>
-                  <h5 className='text-uppercase'>back to the process</h5>
-                  <span className='text-primary'>Designation</span>
-                </div>
-              </div>
-            </div>
+            )}
           </div>
         </div>
       </div>
+
+      {/* Photo Section */}
       <div className='container-xxl py-5'>
         <div className='container'>
           <div
@@ -377,36 +207,32 @@ export function Content() {
               Photo of the result of Barber Sangaji
             </h1>
           </div>
-          <div className='row g-4'>
-            <div
-              className='col-lg-3 col-md-6 wow fadeInUp'
-              data-wow-delay='0.1s'
-            >
-              <div className='team-item'>
-                <div className='team-img position-relative overflow-hidden'>
-                  <img
-                    className='img-fluid'
-                    src='/img/img1.png'
-                    alt='Result 1 Image'
-                  />
-                  <div className='team-social'>
-                    <a className='btn btn-square' href=''>
-                      <i className='fab fa-facebook-f'></i>
-                    </a>
-                    <a className='btn btn-square' href=''>
-                      <i className='fab fa-twitter'></i>
-                    </a>
-                    <a className='btn btn-square' href=''>
-                      <i className='fab fa-instagram'></i>
-                    </a>
-                  </div>
-                </div>
-                <div className='bg-secondary text-center p-4'>
-                  <h5 className='text-uppercase'>back to the process</h5>
-                  <span className='text-primary'>Designation</span>
+          <div className='row g-4 justify-content-center'>
+            {loading ? (
+              <div className='col-12 text-center'>
+                <div className='spinner-border text-primary' role='status'>
+                  <span className='visually-hidden'>Loading...</span>
                 </div>
               </div>
-            </div>
+            ) : photos.length > 0 ? (
+              photos.map((photo, index) => (
+                <div
+                  key={photo.id}
+                  className='col-lg-3 col-md-4 col-sm-6 wow fadeInUp'
+                  data-wow-delay={`${0.1 + (index % 4) * 0.2}s`}
+                >
+                  <ContentCard
+                    item={photo}
+                    type='photo'
+                    defaultThumbnail={defaultThumbnail}
+                  />
+                </div>
+              ))
+            ) : (
+              <div className='col-12 text-center'>
+                <p className='text-muted'>Belum ada foto yang ditambahkan.</p>
+              </div>
+            )}
           </div>
         </div>
       </div>

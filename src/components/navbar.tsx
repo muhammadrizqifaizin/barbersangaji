@@ -159,13 +159,13 @@ export default function Navbar() {
           top: 0,
           left: 0,
           right: 0,
-          
+
           transform: hidden ? 'translateY(-100%)' : 'translateY(0)',
           transition: 'transform 0.4s ease-in-out, opacity 0.3s ease, background-color 0.3s ease',
-          
+
           opacity: hidden ? 0 : (isSwitching ? 0.9 : 1),
           pointerEvents: hidden ? 'none' : 'auto',
-          
+
           width: '100%',
           backgroundColor: navbarBg,
 
@@ -226,7 +226,7 @@ export default function Navbar() {
                   <Link to='/testimonial' resetScroll className='dropdown-item'>{t('nav.testimonial')}</Link>
                   <Link to='/content' resetScroll className='dropdown-item'>{t('nav.content')}</Link>
                   <div className='dropdown-divider'></div>
-                  <a href='/admin/login' className='dropdown-item d-flex align-items-center'>
+                  <a href={import.meta.env.VITE_ADMIN_URL || 'http://localhost:5174'} className='dropdown-item d-flex align-items-center' target='_blank' rel='noopener noreferrer'>
                     <i className='fa fa-user-shield me-2'></i>Login Admin
                   </a>
                 </div>
@@ -252,11 +252,11 @@ export default function Navbar() {
       {/* FIX: Kita kurangi 1px (spacerHeight - 1). 
           Ini memaksa konten Hero naik 1 pixel ke atas untuk menutup gap putih tipis tersebut.
       */}
-      <div 
-        style={{ 
-          height: spacerHeight > 0 ? spacerHeight - 1 : 0, 
-          width: '100%' 
-        }} 
+      <div
+        style={{
+          height: spacerHeight > 0 ? spacerHeight - 1 : 0,
+          width: '100%'
+        }}
       />
     </>
   )

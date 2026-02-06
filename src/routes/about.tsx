@@ -122,7 +122,7 @@ export function About() {
                   </div>
                 </div>
                 <div className='bg-secondary text-center p-4'>
-                  <h5 className='text-uppercase'>Mr.z</h5>
+                  <h5 className='text-uppercase'>Crawl</h5>
                   <span className='text-primary'>capster</span>
                 </div>
               </div>
@@ -140,7 +140,7 @@ export function About() {
                   </div>
                 </div>
                 <div className='bg-secondary text-center p-4'>
-                  <h5 className='text-uppercase'>Arif</h5>
+                  <h5 className='text-uppercase'>Badrut</h5>
                   <span className='text-primary'>capster</span>
                 </div>
               </div>
@@ -158,7 +158,7 @@ export function About() {
                   </div>
                 </div>
                 <div className='bg-secondary text-center p-4'>
-                  <h5 className='text-uppercase'>Karol</h5>
+                  <h5 className='text-uppercase'>Agus</h5>
                   <span className='text-primary'>capster</span>
                 </div>
               </div>

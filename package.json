@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.1.0",
+    "@supabase/supabase-js": "^2.95.3",
     "@tanstack/react-router": "^1.63.2",
     "bootstrap-icons": "^1.13.1",
     "express": "^4.21.1",

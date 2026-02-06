@@ -10,6 +10,7 @@ export default function Footer() {
     >
       <div className='container py-5'>
         <div className='row g-5'>
+          {/* Kolom Kontak */}
           <div className='col-lg-4 col-md-6'>
             <h4 className='text-uppercase mb-4'>{t('footer.getInTouch')}</h4>
             <div className='d-flex align-items-center mb-2'>
@@ -31,6 +32,8 @@ export default function Footer() {
               <span>barbersangaji@gmail.com</span>
             </div>
           </div>
+
+          {/* Kolom Link Cepat */}
           <div className='col-lg-4 col-md-6'>
             <h4 className='text-uppercase mb-4'>{t('footer.quickLinks')}</h4>
             <a className='btn btn-link' href='/about'>
@@ -42,13 +45,15 @@ export default function Footer() {
             <a className='btn btn-link' href='/service'>
               {t('footer.ourServices')}
             </a>
-            <a className='btn btn-link' href=''>
+            <a className='btn btn-link' href='#'>
               {t('footer.terms')}
             </a>
-            <a className='btn btn-link' href=''>
+            <a className='btn btn-link' href='#'>
               {t('footer.support')}
             </a>
           </div>
+
+          {/* Kolom Newsletter & Sosmed */}
           <div className='col-lg-4 col-md-6'>
             <h4 className='text-uppercase mb-4'>{t('footer.newsletter')}</h4>
             <div className='position-relative mb-4'>
@@ -69,7 +74,8 @@ export default function Footer() {
                 className='btn btn-lg-square btn-dark text-primary m-1'
                 href='#'
               >
-                <i className='fab fa-twitter'></i>
+                {/* Logo X (Twitter) Terbaru */}
+                <i className='fab fa-x-twitter'></i>
               </a>
               <a
                 className='btn btn-lg-square btn-dark text-primary m-1'
@@ -93,20 +99,22 @@ export default function Footer() {
           </div>
         </div>
       </div>
+
+      {/* Bagian Copyright */}
       <div className='container'>
         <div className='copyright'>
           <div className='row'>
             <div className='col-md-6 text-center text-md-start mb-3 mb-md-0'>
               &copy;{' '}
-              <a className='border-bottom' href='https://siaktive.my.id/'>
+              <a className='border-bottom' href='/'>
                 {t('brand.name')}
               </a>
               , {t('footer.rights')}
             </div>
             <div className='col-md-6 text-center text-md-end'>
-              {t('footer.designed')}{' '}
-              <a className='border-bottom' href='https://siaktive.my.id/'>
-                siaktive.my.id
+              Developed by{' '}
+              <a className='border-bottom' href='/'>
+                Siaktive
               </a>
             </div>
           </div>

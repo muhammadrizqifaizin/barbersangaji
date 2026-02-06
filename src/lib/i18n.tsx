@@ -54,7 +54,7 @@ const translations: Record<Lang, Record<string, string>> = {
 
     // ABOUT
     'about.title': 'About',
-    'about.experience.years': '5 Years',
+    'about.experience.years': '4 Years',
     'about.experience.title': 'Experience',
     'about.us': 'About Us',
     'about.heading': 'More Than Just A Haircut. Learn More About Us!',
@@ -236,7 +236,7 @@ const translations: Record<Lang, Record<string, string>> = {
 
     // ABOUT
     'about.title': 'Tentang',
-    'about.experience.years': '5 Tahun',
+    'about.experience.years': '4 Tahun',
     'about.experience.title': 'Pengalaman',
     'about.us': 'Tentang Kami',
     'about.heading': 'Lebih Dari Sekadar Potong Rambut. Pelajari Lebih Lanjut Tentang Kami!',

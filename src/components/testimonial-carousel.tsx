@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { useI18n } from '../lib/i18n'
+import { supabase, type Testimonial } from '../lib/supabase'
 import './testimonial-carousel.css'
 
 // Star rating component
@@ -139,65 +140,121 @@ function TestimonialCard(props: TestimonialItemProps) {
 
 export default function TestimonialCarousel() {
   const { t } = useI18n()
+  const [testimonials, setTestimonials] = useState<TestimonialItemProps[]>([])
+  const [loading, setLoading] = useState(true)
+  const carouselInitialized = useRef(false)
 
+  // Fetch testimonials from Supabase
   useEffect(() => {
-    // Initialize owl carousel with auto-slide every 2 seconds
-    $('.testimonial-carousel-new').owlCarousel({
-      autoplay: true,
-      autoplayTimeout: 2000,
-      autoplayHoverPause: true,
-      smartSpeed: 800,
-      loop: true,
-      nav: false,
-      dots: true,
-      responsive: {
-        0: {
-          items: 1,
-          margin: 15
-        },
-        576: {
-          items: 1,
-          margin: 20
-        },
-        768: {
-          items: 2,
-          margin: 25
-        },
-        992: {
-          items: 3,
-          margin: 30
+    async function fetchTestimonials() {
+      try {
+        const { data, error } = await supabase
+          .from('testimonials')
+          .select('*')
+          .order('created_at', { ascending: false })
+
+        if (error) throw error
+
+        if (data && data.length > 0) {
+          // Map API data to component props
+          const testimonialData = data as Testimonial[]
+          setTestimonials(testimonialData.map(t => ({
+            name: t.name,
+            role: t.profession,
+            text: t.content,
+            image: t.photo_url || '/img/testimonial-1.jpg',
+            rating: t.rating
+          })))
+        } else {
+          // Fallback to default testimonials if API returns empty
+          loadDefaults()
         }
+      } catch (error) {
+        console.error('Failed to fetch testimonials:', error)
+        loadDefaults()
+      } finally {
+        setLoading(false)
       }
-    })
-  }, [])
-
-  // Force re-render just in case translations were not ready during initial render? 
-  // Normally useI18n should handle it, but with Owl Carousel initializing manually,
-  // we might need to be careful. For now, standard React render is fine.
-
-  const testimonials = [
-    {
-      name: 'Ivanderr',
-      role: t('testimonial.role.student'),
-      text: t('testimonial.1.text'),
-      image: '/img/testimonial-1.jpg',
-      rating: 5
-    },
-    {
-      name: 'Cahya Dwi',
-      role: t('testimonial.role.student'),
-      text: t('testimonial.2.text'),
-      image: '/img/testimonial-2.jpg',
-      rating: 5
-    },
-    {
-      name: 'Andi Sujatmiko',
-      role: t('testimonial.role.teacher'),
-      text: t('testimonial.3.text'),
-      image: '/img/testimonial-3.jpg',
-      rating: 5
     }
-  ]
+
+    function loadDefaults() {
+      setTestimonials([
+        {
+          name: 'Ivanderr',
+          role: t('testimonial.role.student'),
+          text: t('testimonial.1.text'),
+          image: '/img/testimonial-1.jpg',
+          rating: 5
+        },
+        {
+          name: 'Cahya Dwi',
+          role: t('testimonial.role.student'),
+          text: t('testimonial.2.text'),
+          image: '/img/testimonial-2.jpg',
+          rating: 5
+        },
+        {
+          name: 'Andi Sujatmiko',
+          role: t('testimonial.role.teacher'),
+          text: t('testimonial.3.text'),
+          image: '/img/testimonial-3.jpg',
+          rating: 5
+        }
+      ])
+    }
+
+    fetchTestimonials()
+  }, [t])
+
+  // Initialize owl carousel after testimonials are loaded
+  useEffect(() => {
+    if (!loading && testimonials.length > 0 && !carouselInitialized.current) {
+      // Small delay to ensure DOM is ready
+      const timer = setTimeout(() => {
+        // @ts-ignore
+        $('.testimonial-carousel-new').owlCarousel({
+          autoplay: true,
+          autoplayTimeout: 2000,
+          autoplayHoverPause: true,
+          smartSpeed: 800,
+          loop: true,
+          nav: false,
+          dots: true,
+          responsive: {
+            0: {
+              items: 1,
+              margin: 15
+            },
+            576: {
+              items: 1,
+              margin: 20
+            },
+            768: {
+              items: 2,
+              margin: 25
+            },
+            992: {
+              items: 3,
+              margin: 30
+            }
+          }
+        })
+        carouselInitialized.current = true
+      }, 100)
+
+      return () => clearTimeout(timer)
+    }
+  }, [loading, testimonials])
+
+  if (loading) {
+    return (
+      <div className='text-center py-5'>
+        <div className='spinner-border text-primary' role='status'>
+          <span className='visually-hidden'>Loading...</span>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div
